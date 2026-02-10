@@ -18,7 +18,7 @@ export default function Home() {
       </header>
 
       <div className="py-24">
-        <div className="max-w-4xl mx-auto px-6 mb-20 text-center lg:text-left">
+        <div className="max-w-7xl mx-auto px-6 mb-20 text-center lg:text-left">
           <h2 className="text-6xl sm:text-8xl font-black mb-8 leading-[0.9] tracking-tighter uppercase italic text-white/90">
             Will AI <br /><span className="text-blue-600">Displace</span> Your Value?
           </h2>
@@ -32,7 +32,7 @@ export default function Home() {
       </div>
 
       <footer className="py-24 bg-black border-t border-white/5">
-        <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
+        <div className="max-w-7xl mx-auto px-6 text-center space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
             <div className="space-y-4">
               <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-white/50">Philosophy</h4>

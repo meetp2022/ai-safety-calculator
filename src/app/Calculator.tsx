@@ -148,8 +148,8 @@ export default function Calculator() {
                                                     frequencies: { ...selection.frequencies, [task]: freq as any }
                                                 })}
                                                 className={`flex-1 py-4 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all duration-500 ${selection.frequencies[task] === freq
-                                                        ? 'bg-blue-600 text-white shadow-[0_0_25px_rgba(59,130,246,0.3)] scale-[1.02]'
-                                                        : 'text-white/20 hover:text-white hover:bg-white/5'
+                                                    ? 'bg-blue-600 text-white shadow-[0_0_25px_rgba(59,130,246,0.3)] scale-[1.02]'
+                                                    : 'text-white/20 hover:text-white hover:bg-white/5'
                                                     }`}
                                             >
                                                 {freq}
@@ -191,8 +191,8 @@ export default function Calculator() {
                                         });
                                     }}
                                     className={`p-8 text-left border rounded-3xl transition-all duration-500 flex justify-between items-center ${selection.coreTasks.includes(task)
-                                            ? 'border-blue-500 bg-blue-600/10 text-white'
-                                            : 'border-white/5 bg-slate-900/40 text-white/30'
+                                        ? 'border-blue-500 bg-blue-600/10 text-white'
+                                        : 'border-white/5 bg-slate-900/40 text-white/30'
                                         }`}
                                 >
                                     <span className="text-xl font-black uppercase tracking-tight">{task}</span>
@@ -357,7 +357,7 @@ export default function Calculator() {
     return (
         <div className="relative min-h-screen">
             <ScoreLegend />
-            <div className="max-w-4xl mx-auto py-24 px-8">
+            <div className="max-w-7xl mx-auto py-24 px-8">
                 <div className="mb-24 space-y-8">
                     <div className="flex justify-between items-end">
                         <div className="space-y-2">
