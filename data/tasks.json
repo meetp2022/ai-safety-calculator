@@ -1,0 +1,101 @@
+{
+    "Software Engineer": [
+        "Writing boilerplate code",
+        "Debugging complex logic",
+        "Designing system architecture",
+        "Reviewing code for security",
+        "Writing unit tests",
+        "Documentation",
+        "Collaborating with stakeholders",
+        "Planning sprints"
+    ],
+    "Data Scientist": [
+        "Data cleaning and preprocessing",
+        "Exploratory data analysis",
+        "Feature engineering",
+        "Model training and tuning",
+        "Presenting insights to business",
+        "Developing data pipelines",
+        "Researching new algorithms"
+    ],
+    "QA Tester": [
+        "Writing test cases",
+        "Executing manual regression tests",
+        "Writing automated UI tests",
+        "Reporting and tracking bugs",
+        "Performance testing",
+        "Verifying bug fixes"
+    ],
+    "DevOps Engineer": [
+        "Configuring CI/CD pipelines",
+        "Managing cloud infrastructure",
+        "Monitoring system health",
+        "Incident response and on-call",
+        "Security hardening",
+        "Automating routine maintenance"
+    ],
+    "Project Manager": [
+        "Defining project scope and goals",
+        "Managing stakeholder expectations",
+        "Allocating resources",
+        "Risk assessment and mitigation",
+        "Scheduling and tracking milestones",
+        "Facilitating team meetings"
+    ],
+    "Business Analyst": [
+        "Gathering business requirements",
+        "Creating process flow diagrams",
+        "Conducting gap analysis",
+        "Communicating with technical teams",
+        "Data-driven decision support",
+        "Measuring project ROI"
+    ],
+    "Customer Support": [
+        "Answering FAQs",
+        "Resolving billing issues",
+        "Handling technical escalations",
+        "Empathizing with frustrated users",
+        "Updating knowledge base",
+        "Identifying product bugs from feedback"
+    ],
+    "HR Specialist": [
+        "Sourcing candidates",
+        "Conducting initial interviews",
+        "Onboarding new employees",
+        "Managing employee relations",
+        "Administering benefits",
+        "Ensuring labor law compliance"
+    ],
+    "UI/UX Designer": [
+        "Creating wireframes and prototypes",
+        "Conducting user research",
+        "Designing high-fidelity UI",
+        "Building and maintaining design systems",
+        "User testing and iteration",
+        "Handing over assets to developers"
+    ],
+    "Graphic Designer": [
+        "Creating visual concepts",
+        "Designing marketing materials",
+        "Photo editing and manipulation",
+        "Choosing typography and colors",
+        "Logo and brand identity design",
+        "Reviewing final layouts"
+    ],
+    "Content Writer": [
+        "Writing blog posts and articles",
+        "Copywriting for marketing",
+        "SEO keyword research",
+        "Editing and proofreading",
+        "Social media content creation",
+        "Content strategy planning"
+    ],
+    "Video Editor": [
+        "Cutting and arranging footage",
+        "Color grading and correction",
+        "Adding motion graphics",
+        "Sound design and mixing",
+        "Reviewing raw footage",
+        "Exporting for various platforms"
+    ]
+}

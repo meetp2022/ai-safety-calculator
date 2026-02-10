@@ -1,0 +1,32 @@
+[
+    {
+        "id": "tech",
+        "name": "Technology & Software",
+        "roles": [
+            "Software Engineer",
+            "Data Scientist",
+            "QA Tester",
+            "DevOps Engineer"
+        ]
+    },
+    {
+        "id": "business",
+        "name": "Business & Operations",
+        "roles": [
+            "Project Manager",
+            "Business Analyst",
+            "Customer Support",
+            "HR Specialist"
+        ]
+    },
+    {
+        "id": "creative",
+        "name": "Creative & Design",
+        "roles": [
+            "UI/UX Designer",
+            "Graphic Designer",
+            "Content Writer",
+            "Video Editor"
+        ]
+    }
+]

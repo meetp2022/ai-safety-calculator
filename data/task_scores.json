@@ -1,0 +1,452 @@
+{
+    "Writing boilerplate code": {
+        "as": 0.95,
+        "acm": 0.95,
+        "af": 0.15,
+        "haf": 0.05
+    },
+    "Debugging complex logic": {
+        "as": 0.65,
+        "acm": 0.75,
+        "af": 0.3,
+        "haf": 0.55
+    },
+    "Designing system architecture": {
+        "as": 0.35,
+        "acm": 0.45,
+        "af": 0.55,
+        "haf": 0.85
+    },
+    "Reviewing code for security": {
+        "as": 0.55,
+        "acm": 0.65,
+        "af": 0.45,
+        "haf": 0.75
+    },
+    "Writing unit tests": {
+        "as": 0.85,
+        "acm": 0.9,
+        "af": 0.25,
+        "haf": 0.2
+    },
+    "Documentation": {
+        "as": 0.75,
+        "acm": 0.85,
+        "af": 0.35,
+        "haf": 0.35
+    },
+    "Collaborating with stakeholders": {
+        "as": 0.15,
+        "acm": 0.25,
+        "af": 0.75,
+        "haf": 0.95
+    },
+    "Planning sprints": {
+        "as": 0.45,
+        "acm": 0.55,
+        "af": 0.5,
+        "haf": 0.8
+    },
+    "Data cleaning and preprocessing": {
+        "as": 0.8,
+        "acm": 0.85,
+        "af": 0.3,
+        "haf": 0.2
+    },
+    "Exploratory data analysis": {
+        "as": 0.6,
+        "acm": 0.7,
+        "af": 0.4,
+        "haf": 0.6
+    },
+    "Feature engineering": {
+        "as": 0.5,
+        "acm": 0.6,
+        "af": 0.5,
+        "haf": 0.7
+    },
+    "Model training and tuning": {
+        "as": 0.85,
+        "acm": 0.9,
+        "af": 0.3,
+        "haf": 0.3
+    },
+    "Presenting insights to business": {
+        "as": 0.1,
+        "acm": 0.2,
+        "af": 0.8,
+        "haf": 1.0
+    },
+    "Developing data pipelines": {
+        "as": 0.7,
+        "acm": 0.75,
+        "af": 0.4,
+        "haf": 0.5
+    },
+    "Researching new algorithms": {
+        "as": 0.3,
+        "acm": 0.4,
+        "af": 0.6,
+        "haf": 0.9
+    },
+    "Writing test cases": {
+        "as": 0.7,
+        "acm": 0.8,
+        "af": 0.4,
+        "haf": 0.4
+    },
+    "Executing manual regression tests": {
+        "as": 0.9,
+        "acm": 0.95,
+        "af": 0.3,
+        "haf": 0.2
+    },
+    "Writing automated UI tests": {
+        "as": 0.8,
+        "acm": 0.85,
+        "af": 0.35,
+        "haf": 0.3
+    },
+    "Reporting and tracking bugs": {
+        "as": 0.75,
+        "acm": 0.8,
+        "af": 0.4,
+        "haf": 0.3
+    },
+    "Performance testing": {
+        "as": 0.6,
+        "acm": 0.7,
+        "af": 0.5,
+        "haf": 0.5
+    },
+    "Verifying bug fixes": {
+        "as": 0.7,
+        "acm": 0.8,
+        "af": 0.4,
+        "haf": 0.4
+    },
+    "Configuring CI/CD pipelines": {
+        "as": 0.75,
+        "acm": 0.8,
+        "af": 0.4,
+        "haf": 0.4
+    },
+    "Managing cloud infrastructure": {
+        "as": 0.5,
+        "acm": 0.6,
+        "af": 0.6,
+        "haf": 0.7
+    },
+    "Monitoring system health": {
+        "as": 0.85,
+        "acm": 0.9,
+        "af": 0.3,
+        "haf": 0.3
+    },
+    "Incident response and on-call": {
+        "as": 0.2,
+        "acm": 0.3,
+        "af": 0.7,
+        "haf": 0.9
+    },
+    "Security hardening": {
+        "as": 0.4,
+        "acm": 0.5,
+        "af": 0.6,
+        "haf": 0.8
+    },
+    "Automating routine maintenance": {
+        "as": 0.9,
+        "acm": 0.95,
+        "af": 0.2,
+        "haf": 0.1
+    },
+    "Defining project scope and goals": {
+        "as": 0.1,
+        "acm": 0.2,
+        "af": 0.8,
+        "haf": 1.0
+    },
+    "Managing stakeholder expectations": {
+        "as": 0.05,
+        "acm": 0.1,
+        "af": 0.9,
+        "haf": 1.0
+    },
+    "Allocating resources": {
+        "as": 0.4,
+        "acm": 0.5,
+        "af": 0.6,
+        "haf": 0.8
+    },
+    "Risk assessment and mitigation": {
+        "as": 0.3,
+        "acm": 0.4,
+        "af": 0.7,
+        "haf": 0.9
+    },
+    "Scheduling and tracking milestones": {
+        "as": 0.6,
+        "acm": 0.7,
+        "af": 0.5,
+        "haf": 0.6
+    },
+    "Facilitating team meetings": {
+        "as": 0.05,
+        "acm": 0.1,
+        "af": 0.9,
+        "haf": 1.0
+    },
+    "Gathering business requirements": {
+        "as": 0.2,
+        "acm": 0.3,
+        "af": 0.7,
+        "haf": 0.9
+    },
+    "Creating process flow diagrams": {
+        "as": 0.6,
+        "acm": 0.7,
+        "af": 0.4,
+        "haf": 0.5
+    },
+    "Conducting gap analysis": {
+        "as": 0.5,
+        "acm": 0.6,
+        "af": 0.5,
+        "haf": 0.7
+    },
+    "Communicating with technical teams": {
+        "as": 0.1,
+        "acm": 0.2,
+        "af": 0.8,
+        "haf": 1.0
+    },
+    "Data-driven decision support": {
+        "as": 0.7,
+        "acm": 0.8,
+        "af": 0.5,
+        "haf": 0.6
+    },
+    "Measuring project ROI": {
+        "as": 0.5,
+        "acm": 0.6,
+        "af": 0.5,
+        "haf": 0.7
+    },
+    "Answering FAQs": {
+        "as": 0.95,
+        "acm": 0.95,
+        "af": 0.1,
+        "haf": 0.1
+    },
+    "Resolving billing issues": {
+        "as": 0.6,
+        "acm": 0.65,
+        "af": 0.4,
+        "haf": 0.65
+    },
+    "Handling technical escalations": {
+        "as": 0.45,
+        "acm": 0.55,
+        "af": 0.55,
+        "haf": 0.85
+    },
+    "Empathizing with frustrated users": {
+        "as": 0.05,
+        "acm": 0.1,
+        "af": 0.95,
+        "haf": 1.0
+    },
+    "Updating knowledge base": {
+        "as": 0.8,
+        "acm": 0.85,
+        "af": 0.3,
+        "haf": 0.3
+    },
+    "Identifying product bugs from feedback": {
+        "as": 0.5,
+        "acm": 0.6,
+        "af": 0.45,
+        "haf": 0.7
+    },
+    "Sourcing candidates": {
+        "as": 0.65,
+        "acm": 0.75,
+        "af": 0.45,
+        "haf": 0.6
+    },
+    "Conducting initial interviews": {
+        "as": 0.15,
+        "acm": 0.25,
+        "af": 0.8,
+        "haf": 1.0
+    },
+    "Onboarding new employees": {
+        "as": 0.35,
+        "acm": 0.45,
+        "af": 0.6,
+        "haf": 0.9
+    },
+    "Managing employee relations": {
+        "as": 0.05,
+        "acm": 0.1,
+        "af": 0.9,
+        "haf": 1.0
+    },
+    "Administering benefits": {
+        "as": 0.7,
+        "acm": 0.8,
+        "af": 0.4,
+        "haf": 0.5
+    },
+    "Ensuring labor law compliance": {
+        "as": 0.4,
+        "acm": 0.6,
+        "af": 0.7,
+        "haf": 0.8
+    },
+    "Creating wireframes and prototypes": {
+        "as": 0.5,
+        "acm": 0.65,
+        "af": 0.5,
+        "haf": 0.7
+    },
+    "Conducting user research": {
+        "as": 0.2,
+        "acm": 0.35,
+        "af": 0.7,
+        "haf": 0.95
+    },
+    "Designing high-fidelity UI": {
+        "as": 0.55,
+        "acm": 0.7,
+        "af": 0.5,
+        "haf": 0.7
+    },
+    "Building and maintaining design systems": {
+        "as": 0.65,
+        "acm": 0.75,
+        "af": 0.45,
+        "haf": 0.6
+    },
+    "User testing and iteration": {
+        "as": 0.3,
+        "acm": 0.45,
+        "af": 0.65,
+        "haf": 0.9
+    },
+    "Handing over assets to developers": {
+        "as": 0.9,
+        "acm": 0.9,
+        "af": 0.3,
+        "haf": 0.2
+    },
+    "Creating visual concepts": {
+        "as": 0.25,
+        "acm": 0.4,
+        "af": 0.7,
+        "haf": 0.95
+    },
+    "Designing marketing materials": {
+        "as": 0.6,
+        "acm": 0.75,
+        "af": 0.5,
+        "haf": 0.6
+    },
+    "Photo editing and manipulation": {
+        "as": 0.8,
+        "acm": 0.9,
+        "af": 0.3,
+        "haf": 0.3
+    },
+    "Choosing typography and colors": {
+        "as": 0.4,
+        "acm": 0.55,
+        "af": 0.6,
+        "haf": 0.8
+    },
+    "Logo and brand identity design": {
+        "as": 0.15,
+        "acm": 0.3,
+        "af": 0.8,
+        "haf": 1.0
+    },
+    "Reviewing final layouts": {
+        "as": 0.45,
+        "acm": 0.6,
+        "af": 0.55,
+        "haf": 0.75
+    },
+    "Writing blog posts and articles": {
+        "as": 0.7,
+        "acm": 0.85,
+        "af": 0.45,
+        "haf": 0.5
+    },
+    "Copywriting for marketing": {
+        "as": 0.6,
+        "acm": 0.75,
+        "af": 0.55,
+        "haf": 0.65
+    },
+    "SEO keyword research": {
+        "as": 0.9,
+        "acm": 0.95,
+        "af": 0.25,
+        "haf": 0.15
+    },
+    "Editing and proofreading": {
+        "as": 0.85,
+        "acm": 0.95,
+        "af": 0.3,
+        "haf": 0.25
+    },
+    "Social media content creation": {
+        "as": 0.65,
+        "acm": 0.8,
+        "af": 0.4,
+        "haf": 0.5
+    },
+    "Content strategy planning": {
+        "as": 0.25,
+        "acm": 0.45,
+        "af": 0.75,
+        "haf": 0.9
+    },
+    "Cutting and arranging footage": {
+        "as": 0.75,
+        "acm": 0.85,
+        "af": 0.4,
+        "haf": 0.4
+    },
+    "Color grading and correction": {
+        "as": 0.65,
+        "acm": 0.8,
+        "af": 0.5,
+        "haf": 0.5
+    },
+    "Adding motion graphics": {
+        "as": 0.5,
+        "acm": 0.6,
+        "af": 0.6,
+        "haf": 0.7
+    },
+    "Sound design and mixing": {
+        "as": 0.4,
+        "acm": 0.55,
+        "af": 0.6,
+        "haf": 0.7
+    },
+    "Reviewing raw footage": {
+        "as": 0.45,
+        "acm": 0.5,
+        "af": 0.7,
+        "haf": 0.8
+    },
+    "Exporting for various platforms": {
+        "as": 0.95,
+        "acm": 0.95,
+        "af": 0.2,
+        "haf": 0.1
+    }
+}
