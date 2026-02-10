@@ -46,6 +46,20 @@ export default function Calculator() {
         setShowBreakdown(false);
     }, [selection.role]);
 
+    const resetCalculator = () => {
+        setStep('category');
+        setSelection({
+            category: '',
+            role: '',
+            experience: 'MID',
+            frequencies: {},
+            coreTasks: [],
+            adoptionRate: 1.0,
+            judgment: 0.5,
+        });
+        setShowBreakdown(false);
+    };
+
     const currentRoleTasks = useMemo(() => {
         return (tasksData as any)[selection.role] || [];
     }, [selection.role]);
@@ -328,22 +342,28 @@ export default function Calculator() {
 
                         <div className="space-y-6 pt-10">
                             <button
-                                onClick={() => window.location.reload()}
+                                onClick={resetCalculator}
                                 className="w-full py-10 bg-white text-black rounded-[3rem] font-black text-4xl hover:bg-blue-600 hover:text-white transition-all active:scale-95 shadow-[0_40px_100px_rgba(0,0,0,0.5)] uppercase italic tracking-tighter"
                             >
                                 Analyze New Role
                             </button>
 
-                            {!showBreakdown && (
+                            <div className="flex justify-center gap-10 items-center">
                                 <button
-                                    onClick={() => setShowBreakdown(true)}
-                                    className="text-white/40 font-black text-sm uppercase tracking-[0.3em] hover:text-blue-500 transition-colors flex items-center gap-4 mx-auto"
+                                    onClick={() => setStep('context')}
+                                    className="text-white/40 font-black text-xs uppercase tracking-[0.3em] hover:text-white transition-colors flex items-center gap-2"
                                 >
-                                    <div className="w-12 h-px bg-white/10" />
-                                    See what drives this score
-                                    <div className="w-12 h-px bg-white/10" />
+                                    <span>←</span> Edit Parameters
                                 </button>
-                            )}
+                                {!showBreakdown && (
+                                    <button
+                                        onClick={() => setShowBreakdown(true)}
+                                        className="text-blue-500 font-black text-xs uppercase tracking-[0.3em] hover:text-white transition-colors"
+                                    >
+                                        Detailed Breakdown
+                                    </button>
+                                )}
+                            </div>
                         </div>
                     </div>
                 );
@@ -366,17 +386,28 @@ export default function Calculator() {
                                 {step === 'results' ? 'Success' : `Phase 0${currentStepIndex + 1}`}
                             </div>
                         </div>
-                        {step !== 'category' && step !== 'results' && (
+                        <div className="flex items-center gap-6">
+                            {step !== 'category' && (
+                                <button
+                                    onClick={() => {
+                                        const prev = steps[currentStepIndex - 1];
+                                        setStep(prev as any);
+                                    }}
+                                    className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 hover:text-white transition-colors group flex items-center gap-2"
+                                >
+                                    <span className="group-hover:-translate-x-1 transition-transform">←</span> Back
+                                </button>
+                            )}
                             <button
-                                onClick={() => {
-                                    const prev = steps[currentStepIndex - 1];
-                                    setStep(prev as any);
-                                }}
-                                className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 hover:text-white transition-colors group flex items-center gap-3"
+                                onClick={resetCalculator}
+                                className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 hover:text-blue-500 transition-colors flex items-center gap-2"
                             >
-                                <span className="group-hover:-translate-x-1 transition-transform">←</span> Retrograde
+                                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                                </svg>
+                                Home
                             </button>
-                        )}
+                        </div>
                     </div>
                     <div className="h-1 bg-white/5 rounded-full overflow-hidden">
                         <div
