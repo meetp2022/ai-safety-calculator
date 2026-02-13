@@ -28,7 +28,7 @@ const ScoreLegend = () => (
     </div>
 );
 
-export default function Calculator() {
+export default function Calculator({ onStepChange }: { onStepChange?: (step: string) => void }) {
     const [step, setStep] = useState<Step>('category');
     const [showBreakdown, setShowBreakdown] = useState(false);
     const [selection, setSelection] = useState({
@@ -40,6 +40,10 @@ export default function Calculator() {
         adoptionRate: 1.0,
         judgment: 0.5,
     });
+
+    useEffect(() => {
+        onStepChange?.(step);
+    }, [step, onStepChange]);
 
     useEffect(() => {
         setSelection(prev => ({ ...prev, frequencies: {}, coreTasks: [] }));
@@ -376,7 +380,7 @@ export default function Calculator() {
 
     return (
         <div className="relative min-h-screen">
-            <ScoreLegend />
+            {step === 'results' && <ScoreLegend />}
             <div className="max-w-7xl mx-auto py-24 px-8">
                 <div className="mb-24 space-y-8">
                     <div className="flex justify-between items-end">

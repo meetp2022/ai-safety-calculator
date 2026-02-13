@@ -1,8 +1,13 @@
+'use client';
+
+import { useState } from 'react';
 import Calculator from './Calculator';
 
 export default function Home() {
+  const [currentStep, setCurrentStep] = useState('category');
+
   return (
-    <main className="min-h-screen bg-[#020617] text-white font-sans selection:bg-blue-500/30">
+    <main className="min-h-screen bg-[#030712] text-white font-sans selection:bg-blue-500/30">
       <header className="py-10 px-8 border-b border-white/5">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <h1 className="text-2xl font-black tracking-tighter uppercase italic">
@@ -18,17 +23,19 @@ export default function Home() {
       </header>
 
       <div className="py-24">
-        <div className="max-w-7xl mx-auto px-6 mb-20 text-center lg:text-left">
-          <h2 className="text-6xl sm:text-8xl font-black mb-8 leading-[0.9] tracking-tighter uppercase italic text-white/90">
-            Will AI <br /><span className="text-blue-600">Displace</span> Your Value?
-          </h2>
-          <p className="text-2xl text-white/40 font-medium max-w-2xl leading-relaxed">
-            A surgical, task-level analysis of AI saturation in professional workflows.
-            Calibrated for current transformer architecture maturity.
-          </p>
-        </div>
+        {currentStep === 'category' && (
+          <div className="max-w-7xl mx-auto px-6 mb-20 text-center lg:text-left transition-all duration-700 animate-fade-in">
+            <h2 className="text-6xl sm:text-8xl font-black mb-8 leading-[0.9] tracking-tighter uppercase italic text-white/90">
+              Will AI <br /><span className="text-blue-600">Displace</span> Your Value?
+            </h2>
+            <p className="text-2xl text-white/40 font-medium max-w-2xl leading-relaxed">
+              A surgical, task-level analysis of AI saturation in professional workflows.
+              Calibrated for current transformer architecture maturity.
+            </p>
+          </div>
+        )}
 
-        <Calculator />
+        <Calculator onStepChange={setCurrentStep} />
       </div>
 
       <footer className="py-24 bg-black border-t border-white/5">
