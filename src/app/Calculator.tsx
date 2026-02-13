@@ -197,7 +197,7 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                     <div className="space-y-10 animate-slide-up">
                         <div className="space-y-2 text-center">
                             <h2 className="text-4xl font-black tracking-tight text-white uppercase italic">Core Value Identification</h2>
-                            <p className="text-white/40 font-medium">Which tasks define your "Human Advantage"? Selecting these increases their impact fidelity.</p>
+                            <p className="text-white/40 font-medium max-w-2xl mx-auto">Which tasks rely on your unique human judgment, empathy, or complex creativity? Select these to weight them as "Protected Assets" for a more accurate analysis.</p>
                         </div>
                         <div className="grid grid-cols-1 gap-3">
                             {currentRoleTasks.map((task: string) => (
