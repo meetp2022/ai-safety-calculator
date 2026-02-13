@@ -11,28 +11,28 @@ export const RISK_BANDS: RiskBand[] = [
         min: 0,
         max: 25,
         label: "Low Impact",
-        description: "AI is likely to augment your work rather than fundamentally change your core tasks. Focus on using AI tools to handle repetitive administrative work.",
+        description: "Your role remains fundamentally human-driven. AI will serve as a digital assistant for low-complexity administrative tasks. Your core professional value—judgment and creative intuition—is not easily replicated by current models.",
         color: "#10b981" // Emerald-500
     },
     {
         min: 26,
         max: 50,
         label: "Moderate Impact",
-        description: "Expect significant changes in how you perform certain tasks. AI will become a powerful co-pilot, requiring you to adapt your workflow and focus on higher-level strategy.",
+        description: "AI will function as a high-performance co-pilot. While your core mission remains, the 'how' will change significantly. Expect to shift your focus toward strategic oversight and nuanced decision-making as routine workflows are automated.",
         color: "#f59e0b" // Amber-500
     },
     {
         min: 51,
         max: 75,
         label: "High Impact",
-        description: "A substantial portion of your current tasks could be automated or significantly altered. Professional pivot or deep integration of AI into your core skillset is recommended.",
+        description: "A fundamental transformation of your professional landscape is occurring. A majority of your current daily tasks are within the high-capability zone of AI. Success will require pivoting toward orchestrating AI systems or specializing in high-context problem solving.",
         color: "#f97316" // Orange-500
     },
     {
         min: 76,
         max: 100,
         label: "Very High Impact",
-        description: "The majority of tasks in this role are highly suitable for AI automation. This transition represents an opportunity to redefine the role around human-centric values and complex problem-solving.",
+        description: "This role is in the direct path of rapid automation. Most traditional tasks are highly structured and data-rich, making them prime candidates for total AI integration. Your future value lies in redefining the role around empathy, ethics, and extreme ambiguity.",
         color: "#ef4444" // Red-500
     }
 ];
