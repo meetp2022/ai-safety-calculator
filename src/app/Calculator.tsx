@@ -11,20 +11,22 @@ import { getRiskBand, RISK_BANDS } from '../../engine/riskBands';
 type Step = 'category' | 'role' | 'experience' | 'frequency' | 'value-add' | 'context' | 'results';
 
 const ScoreLegend = () => (
-    <div className="hidden lg:block fixed left-8 top-1/2 -translate-y-1/2 w-64 space-y-4 animate-fade-in">
-        <h3 className="text-xs font-black uppercase tracking-[0.2em] text-blue-500 mb-6 underline decoration-blue-500/30 underline-offset-8">Risk Metrics</h3>
-        {RISK_BANDS.map((band) => (
-            <div key={band.label} className="p-4 rounded-xl border border-white/5 bg-white/5 backdrop-blur-sm space-y-2 group hover:bg-white/10 transition-all cursor-default">
-                <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full shadow-[0_0_8px_currentColor]" style={{ backgroundColor: band.color, color: band.color }} />
-                    <span className="text-sm font-bold text-white/90 uppercase tracking-tight">{band.label}</span>
+    <div className="space-y-4 animate-fade-in">
+        <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-500 mb-4 underline decoration-blue-500/30 underline-offset-8">Risk Metrics</h3>
+        <div className="grid grid-cols-1 gap-3">
+            {RISK_BANDS.map((band) => (
+                <div key={band.label} className="p-3 rounded-xl border border-white/5 bg-white/5 backdrop-blur-sm space-y-1 group hover:bg-white/10 transition-all cursor-default">
+                    <div className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full shadow-[0_0_8px_currentColor]" style={{ backgroundColor: band.color, color: band.color }} />
+                        <span className="text-[10px] font-bold text-white/90 uppercase tracking-tight">{band.label}</span>
+                    </div>
+                    <div className="flex justify-between items-center text-[8px] font-black text-white/40 uppercase tracking-widest leading-none">
+                        <span>Index</span>
+                        <span style={{ color: band.color }}>{band.min}-{band.max}</span>
+                    </div>
                 </div>
-                <div className="flex justify-between items-center text-[10px] font-black text-white/40 uppercase tracking-widest leading-none">
-                    <span>Exposure Index</span>
-                    <span style={{ color: band.color }}>{band.min}-{band.max}</span>
-                </div>
-            </div>
-        ))}
+            ))}
+        </div>
     </div>
 );
 
@@ -108,7 +110,7 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                 return (
                     <div className="space-y-10 animate-slide-up">
                         <h2 className="text-4xl font-black tracking-tight text-white uppercase italic text-center">Define Role</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
                             {category?.roles.map(role => (
                                 <button
                                     key={role}
@@ -271,71 +273,76 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                 const band = getRiskBand(score);
 
                 return (
-                    <div className="space-y-12 text-center animate-fade-in py-10">
-                        {!showBreakdown ? (
-                            <>
-                                <div className="space-y-8">
-                                    <span className="px-8 py-3 bg-white/5 border border-white/10 rounded-full text-[10px] font-black uppercase tracking-[0.5em] text-blue-500 glow-blue">High Fidelity Index</span>
-                                    <h1 className="text-8xl font-black tracking-tighter text-white uppercase italic leading-none">AI Saturation</h1>
-                                    <div className="text-[16rem] leading-none font-black tracking-tighter transition-all duration-700 hover:scale-105" style={{ color: band.color, textShadow: `0 0 100px ${band.color}33` }}>
-                                        {score}
-                                    </div>
+                    <div className="animate-fade-in py-10">
+                        <div className="lg:grid lg:grid-cols-12 lg:gap-12 space-y-12 lg:space-y-0">
+                            {/* Dashboard Left: Score & Identity */}
+                            <div className="lg:col-span-4 space-y-8 text-center lg:text-left flex flex-col justify-center">
+                                <span className="inline-block px-6 py-2 bg-white/5 border border-white/10 rounded-full text-[8px] font-black uppercase tracking-[0.5em] text-blue-500 glow-blue mb-4">Saturation Index</span>
+                                <h1 className="text-5xl font-black tracking-tighter text-white/40 uppercase italic leading-none">AI Exposure</h1>
+                                <div className="text-[10rem] leading-none font-black tracking-tighter transition-all duration-700 hover:scale-105 select-none" style={{ color: band.color, textShadow: `0 0 80px ${band.color}44` }}>
+                                    {score}
                                 </div>
+                            </div>
 
-                                <div className="p-20 rounded-[5rem] bg-white/5 border border-white/5 glass space-y-8 relative overflow-hidden backdrop-blur-3xl">
-                                    <div className="absolute top-0 left-0 w-full h-2" style={{ backgroundColor: band.color }} />
-                                    <h2 className="text-6xl font-black italic uppercase tracking-tighter leading-none" style={{ color: band.color }}>{band.label}</h2>
-                                    <p className="text-2xl font-medium text-white/60 leading-relaxed max-w-3xl mx-auto italic">
+                            {/* Dashboard Center: Impact Card & Secondary Stats */}
+                            <div className="lg:col-span-5 space-y-6">
+                                <div className="p-12 rounded-[3.5rem] bg-white/5 border border-white/5 glass space-y-6 relative overflow-hidden backdrop-blur-3xl">
+                                    <div className="absolute top-0 left-0 w-full h-1.5" style={{ backgroundColor: band.color }} />
+                                    <h2 className="text-4xl font-black italic uppercase tracking-tighter leading-none" style={{ color: band.color }}>{band.label}</h2>
+                                    <p className="text-lg font-medium text-white/60 leading-relaxed italic">
                                         "{band.description}"
                                     </p>
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-left">
-                                    <div className="p-12 rounded-[4rem] border border-white/5 bg-slate-900/40 space-y-4 group hover:bg-slate-900/60 transition-colors">
-                                        <h3 className="font-black text-2xl text-white uppercase tracking-tight italic group-hover:text-blue-400 transition-colors">Model Integrity</h3>
-                                        <p className="text-white/30 leading-relaxed font-bold uppercase text-xs tracking-widest">
-                                            Score reflects interaction effects between <strong>{selection.role}</strong> task taxonomy and <strong>{selection.adoptionRate}x</strong> adoption environment.
+                                <div className="grid grid-cols-1 gap-4">
+                                    <div className="p-8 rounded-[2.5rem] border border-white/5 bg-slate-900/40 space-y-3 group hover:bg-slate-900/60 transition-colors">
+                                        <h3 className="font-black text-lg text-white uppercase tracking-tight italic group-hover:text-blue-400 transition-colors">Integrity Vector</h3>
+                                        <p className="text-white/20 leading-relaxed font-bold uppercase text-[9px] tracking-widest">
+                                            Interaction of <strong>{selection.role}</strong> and <strong>{selection.adoptionRate}x</strong> adoption.
                                         </p>
                                     </div>
-                                    <div className="p-12 rounded-[4rem] border border-white/5 bg-slate-900/40 space-y-4 group hover:bg-slate-900/60 transition-colors">
-                                        <h3 className="font-black text-2xl text-white uppercase tracking-tight italic group-hover:text-blue-400 transition-colors">Advantage Vector</h3>
-                                        <p className="text-white/30 leading-relaxed font-bold uppercase text-xs tracking-widest">
-                                            Manual tagging of <strong>{selection.coreTasks.length} Core Value tasks</strong> provided {selection.coreTasks.length > 3 ? 'High' : 'Moderate'} fidelity adjustment to baseline risk.
-                                        </p>
+                                    <div className="p-8 rounded-[2.5rem] border border-white/5 bg-slate-900/40 space-y-3 group hover:bg-slate-900/60 transition-colors">
+                                        <button onClick={() => setShowBreakdown(true)} className="w-full text-left">
+                                            <h3 className="font-black text-lg text-blue-500 uppercase tracking-tight italic hover:text-white transition-colors">Diagnostic Graph →</h3>
+                                            <p className="text-white/20 leading-relaxed font-bold uppercase text-[9px] tracking-widest">
+                                                Based on <strong>{selection.coreTasks.length}</strong> core human-advantage tags.
+                                            </p>
+                                        </button>
                                     </div>
                                 </div>
-                            </>
-                        ) : (
-                            <div className="space-y-10 text-left animate-slide-up max-w-3xl mx-auto">
-                                <div className="flex justify-between items-end mb-12">
-                                    <div className="space-y-2">
-                                        <h2 className="text-4xl font-black text-white italic uppercase tracking-tighter">Diagnostic Breakdown</h2>
-                                        <p className="text-white/40 uppercase font-black text-[10px] tracking-widest">Task-Level Exposure Variance</p>
+                            </div>
+
+                            {/* Dashboard Right: Metric Legend */}
+                            <div className="lg:col-span-3 lg:border-l lg:border-white/5 lg:pl-12">
+                                <ScoreLegend />
+                            </div>
+                        </div>
+
+                        {showBreakdown && (
+                            <div className="mt-12 pt-12 border-t border-white/5 text-left animate-slide-up max-w-4xl mx-auto">
+                                <div className="flex justify-between items-end mb-8">
+                                    <div className="space-y-1">
+                                        <h2 className="text-2xl font-black text-white italic uppercase tracking-tighter">Variance Matrix</h2>
+                                        <p className="text-white/40 uppercase font-black text-[8px] tracking-widest">Calculated per Task Node</p>
                                     </div>
-                                    <button onClick={() => setShowBreakdown(false)} className="text-[10px] font-black uppercase text-blue-500 hover:text-white transition-colors border-b border-blue-500 pb-1">Back to Summary</button>
+                                    <button onClick={() => setShowBreakdown(false)} className="text-[10px] font-black uppercase text-blue-500 hover:text-white transition-colors border-b border-blue-500 pb-1">Close Matrix</button>
                                 </div>
-                                <div className="grid gap-6">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     {taskInputs.map((task) => {
                                         const taskTIS = Math.round(calculateTIS(task) * 200 * selection.adoptionRate);
                                         return (
-                                            <div key={task.name} className="p-8 rounded-3xl border border-white/5 bg-white/5 group relative overflow-hidden">
+                                            <div key={task.name} className="p-6 rounded-2xl border border-white/5 bg-white/5 group relative overflow-hidden">
                                                 <div className="flex justify-between items-center relative z-10">
-                                                    <div className="space-y-1">
-                                                        <div className="flex items-center gap-3">
-                                                            <p className="font-black text-white uppercase tracking-tight">{task.name}</p>
-                                                            {task.isCoreValue && <span className="text-[8px] bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded-full font-black tracking-widest uppercase">Core</span>}
+                                                    <div className="space-y-0.5">
+                                                        <div className="flex items-center gap-2">
+                                                            <p className="font-black text-white text-xs uppercase tracking-tight">{task.name}</p>
+                                                            {task.isCoreValue && <span className="text-[6px] bg-blue-500/20 text-blue-400 px-1.5 py-0.5 rounded-full font-black tracking-widest uppercase">Core</span>}
                                                         </div>
-                                                        <p className="text-[10px] font-black text-white/20 uppercase tracking-[0.2em]">Frequency: {task.frequency}</p>
+                                                        <p className="text-[8px] font-black text-white/20 uppercase tracking-[0.2em]">{task.frequency}</p>
                                                     </div>
-                                                    <div className="flex items-center gap-4">
-                                                        <div className="w-24 h-1 bg-white/5 rounded-full overflow-hidden">
-                                                            <div className="h-full bg-blue-600 rounded-full" style={{ width: `${taskTIS}%` }} />
-                                                        </div>
-                                                        <span className="font-black text-xl text-white italic">{taskTIS}</span>
+                                                    <div className="flex items-center gap-3">
+                                                        <span className="font-black text-sm text-white italic">{taskTIS}</span>
                                                     </div>
-                                                </div>
-                                                <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                    <div className="text-[8px] font-black text-white/10 uppercase vertical-text">Exposure Analysis</div>
                                                 </div>
                                             </div>
                                         )
@@ -380,7 +387,6 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
 
     return (
         <div className="relative min-h-screen">
-            {step === 'results' && <ScoreLegend />}
             <div className="max-w-7xl mx-auto py-24 px-8">
                 <div className="mb-24 space-y-8">
                     <div className="flex justify-between items-end">

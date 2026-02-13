@@ -7,8 +7,11 @@ export default function Home() {
   const [currentStep, setCurrentStep] = useState('category');
 
   return (
-    <main className="min-h-screen bg-[#030712] text-white font-sans selection:bg-blue-500/30">
-      <header className="py-10 px-8 border-b border-white/5">
+    <main className="min-h-screen bg-[#030712] text-white font-sans selection:bg-blue-500/30 relative overflow-hidden">
+      {/* Aesthetic Background Depth */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,#080b1a_0%,transparent_50%)] pointer-events-none" />
+
+      <header className="py-10 px-8 border-b border-white/5 relative z-10">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <h1 className="text-2xl font-black tracking-tighter uppercase italic">
             AI Safety <span className="text-blue-500">Calculator</span>
