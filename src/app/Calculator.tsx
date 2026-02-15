@@ -25,17 +25,17 @@ type Step = 'category' | 'role' | 'experience' | 'frequency' | 'value-add' | 'co
 
 const ScoreLegend = () => (
     <div className="space-y-4 animate-fade-in">
-        <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-500 mb-4 underline decoration-blue-500/30 underline-offset-8">Risk Metrics</h3>
+        <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-neon-cyan mb-4 underline decoration-neon-cyan/30 underline-offset-8">Risk Metrics</h3>
         <div className="grid grid-cols-1 gap-3">
             {RISK_BANDS.map((band) => (
-                <div key={band.label} className="p-3 rounded-xl border border-white/5 bg-white/5 backdrop-blur-sm space-y-1 group hover:bg-white/10 transition-all cursor-default">
+                <div key={band.label} className="p-3 rounded-xl border border-white/10 bg-black/40 backdrop-blur-sm space-y-1 group hover:border-neon-cyan/50 hover:bg-neon-cyan/5 transition-all cursor-default">
                     <div className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full shadow-[0_0_8px_currentColor]" style={{ backgroundColor: band.color, color: band.color }} />
-                        <span className="text-[10px] font-bold text-white/90 uppercase tracking-tight">{band.label}</span>
+                        <div className="w-1.5 h-1.5 rounded-full shadow-[0_0_10px_currentColor]" style={{ backgroundColor: band.color, color: band.color }} />
+                        <span className="text-[10px] font-bold text-white uppercase tracking-tight">{band.label}</span>
                     </div>
                     <div className="flex justify-between items-center text-[8px] font-black text-white/40 uppercase tracking-widest leading-none">
                         <span>Index</span>
-                        <span style={{ color: band.color }}>{band.min}-{band.max}</span>
+                        <span style={{ color: band.color }} className="drop-shadow-[0_0_5px_currentColor]">{band.min}-{band.max}</span>
                     </div>
                 </div>
             ))}
@@ -104,11 +104,11 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                                         setSelection({ ...selection, category: cat.name });
                                         setStep('role');
                                     }}
-                                    className="p-10 text-left border border-white/10 rounded-3xl hover:border-blue-500/50 hover:bg-blue-600/10 backdrop-blur-md transition-all duration-700 group relative overflow-hidden bg-white/5"
+                                    className="p-10 text-left border-2 border-neon-cyan/20 rounded-3xl hover:border-neon-cyan hover:bg-neon-cyan/10 backdrop-blur-md transition-all duration-500 group relative overflow-hidden bg-black/40 shadow-[0_0_30px_rgba(0,243,255,0.05)] hover:shadow-[0_0_40px_rgba(0,243,255,0.2)]"
                                 >
                                     <div className="flex justify-between items-center relative z-10">
                                         <div>
-                                            <span className="text-3xl font-black text-white group-hover:text-blue-400 transition-colors uppercase italic tracking-tighter">{cat.name}</span>
+                                            <span className="text-3xl font-black text-white group-hover:text-neon-cyan transition-colors uppercase italic tracking-tighter drop-shadow-sm">{cat.name}</span>
                                             <p className="text-[10px] font-black text-white/20 uppercase tracking-[0.3em] mt-2">Data Set: v2.0-Verified</p>
                                         </div>
                                         <div className="w-12 h-12 rounded-full border border-white/5 flex items-center justify-center group-hover:bg-blue-600 group-hover:border-blue-600 transition-all duration-500">
@@ -132,10 +132,10 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                                         setSelection({ ...selection, role });
                                         setStep('experience');
                                     }}
-                                    className="p-10 text-center border border-white/10 rounded-3xl hover:border-blue-500/50 hover:bg-blue-600/10 backdrop-blur-md transition-all duration-300 group bg-white/5"
+                                    className="p-10 text-center border-2 border-neon-pink/20 rounded-3xl hover:border-neon-pink hover:bg-neon-pink/10 backdrop-blur-md transition-all duration-300 group bg-black/40 shadow-[0_0_30px_rgba(255,0,255,0.05)] hover:shadow-[0_0_40px_rgba(255,0,255,0.2)]"
                                 >
-                                    <span className="text-xl font-black text-white/70 group-hover:text-white transition-colors uppercase tracking-tight leading-none">{role}</span>
-                                    <div className="h-px bg-white/5 w-1/3 mx-auto mt-4 group-hover:bg-blue-500/50 transition-colors" />
+                                    <span className="text-xl font-black text-white/70 group-hover:text-neon-pink transition-colors uppercase tracking-tight leading-none">{role}</span>
+                                    <div className="h-1 bg-neon-pink/10 w-1/3 mx-auto mt-4 group-hover:bg-neon-pink/50 transition-colors rounded-full" />
                                 </button>
                             ))}
                         </div>
@@ -153,9 +153,9 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                                         setSelection({ ...selection, experience: level as keyof typeof SCORING_CONSTANTS.EXPERIENCE_MODIFIERS });
                                         setStep('frequency');
                                     }}
-                                    className="p-12 border border-white/10 rounded-[2.5rem] hover:border-blue-500/50 hover:bg-blue-600/10 backdrop-blur-md transition-all duration-700 group bg-white/5 flex flex-col items-center gap-4"
+                                    className={`p-12 border-2 rounded-[2.5rem] backdrop-blur-md transition-all duration-500 group bg-black/40 flex flex-col items-center gap-4 ${selection.experience === level ? 'border-neon-cyan shadow-[0_0_40px_rgba(0,243,255,0.3)] bg-neon-cyan/10' : 'border-white/10 hover:border-neon-cyan/50 hover:bg-neon-cyan/5 hover:shadow-[0_0_30px_rgba(0,243,255,0.1)]'}`}
                                 >
-                                    <span className="text-3xl font-black text-white/50 group-hover:text-blue-500 transition-all uppercase tracking-tighter italic">{level}</span>
+                                    <span className={`text-4xl font-black transition-all uppercase tracking-tighter italic ${selection.experience === level ? 'text-neon-cyan' : 'text-white/40 group-hover:text-neon-cyan/80'}`}>{level}</span>
                                     <p className="text-[10px] font-black tracking-[0.2em] text-white/20 uppercase group-hover:text-white/40">Modifier: {SCORING_CONSTANTS.EXPERIENCE_MODIFIERS[level as keyof typeof SCORING_CONSTANTS.EXPERIENCE_MODIFIERS]}x</p>
                                 </button>
                             ))}
@@ -181,9 +181,9 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                                                     ...selection,
                                                     frequencies: { ...selection.frequencies, [task]: freq as keyof typeof SCORING_CONSTANTS.FREQUENCY_WEIGHTS }
                                                 })}
-                                                className={`flex-1 py-4 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all duration-500 ${selection.frequencies[task] === freq
-                                                    ? 'bg-blue-600 text-white shadow-[0_0_25px_rgba(59,130,246,0.3)] scale-[1.02]'
-                                                    : 'text-white/20 hover:text-white hover:bg-white/5'
+                                                className={`flex-1 py-5 rounded-xl font-black text-[11px] uppercase tracking-widest transition-all duration-500 border-2 ${selection.frequencies[task] === freq
+                                                    ? 'bg-neon-green text-black border-neon-green shadow-[0_0_30px_rgba(57,255,20,0.5)] scale-[1.05]'
+                                                    : 'text-neon-green/40 border-neon-green/10 hover:text-neon-green hover:border-neon-green/30 hover:bg-neon-green/5'
                                                     }`}
                                             >
                                                 {freq}
@@ -224,16 +224,18 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                                                 : [...selection.coreTasks, task]
                                         });
                                     }}
-                                    className={`p-8 text-left border rounded-3xl transition-all duration-500 flex justify-between items-center ${selection.coreTasks.includes(task)
-                                        ? 'border-blue-500 bg-blue-600/10 text-white'
-                                        : 'border-white/5 bg-slate-900/40 text-white/30'
+                                    className={`p-8 text-left border-3 rounded-3xl transition-all duration-500 flex justify-between items-center group relative overflow-hidden backdrop-blur-xl ${selection.coreTasks.includes(task)
+                                        ? 'bg-neon-pink/20 border-neon-pink shadow-[0_0_40px_rgba(255,0,255,0.3)] scale-[1.02]'
+                                        : 'bg-black/40 border-white/10 hover:border-neon-pink/50 hover:bg-neon-pink/5 hover:shadow-[0_0_30px_rgba(255,0,255,0.1)]'
                                         }`}
                                 >
-                                    <span className="text-xl font-black uppercase tracking-tight">{task}</span>
-                                    <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${selection.coreTasks.includes(task) ? 'border-blue-500 bg-blue-500' : 'border-white/10'
-                                        }`}>
-                                        {selection.coreTasks.includes(task) && <span className="text-white text-[10px]">✓</span>}
+                                    <div className="relative z-10 flex items-center gap-6">
+                                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center border-2 transition-all ${selection.coreTasks.includes(task) ? 'bg-neon-pink border-neon-pink text-black' : 'border-white/10 text-white/20 group-hover:border-neon-pink/50'}`}>
+                                            {selection.coreTasks.includes(task) ? '✓' : ''}
+                                        </div>
+                                        <span className={`text-xl font-black uppercase tracking-tight italic transition-all ${selection.coreTasks.includes(task) ? 'text-white' : 'text-white/40 group-hover:text-white'}`}>{task}</span>
                                     </div>
+                                    <span className={`text-[10px] font-black uppercase tracking-[0.3em] px-4 py-2 rounded-full border-2 transition-all ${selection.coreTasks.includes(task) ? 'border-neon-pink text-neon-pink bg-black/20' : 'border-white/10 text-white/10 group-hover:text-white/30'}`}>Asset</span>
                                 </button>
                             ))}
                         </div>
@@ -300,10 +302,10 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
 
                             {/* Dashboard Center: Impact Card & Secondary Stats */}
                             <div className="lg:col-span-5 space-y-6">
-                                <div className="p-12 rounded-[3.5rem] border border-white/10 bg-white/5 backdrop-blur-2xl relative overflow-hidden group shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5)]">
-                                    <div className="absolute top-0 left-0 w-full h-1.5" style={{ backgroundColor: band.color }} />
-                                    <h2 className="text-4xl font-black italic uppercase tracking-tighter leading-none" style={{ color: band.color }}>{band.label}</h2>
-                                    <p className="text-lg font-medium text-white/60 leading-relaxed italic">
+                                <div className="p-12 rounded-[3.5rem] border-2 border-neon-cyan bg-black/60 backdrop-blur-2xl relative overflow-hidden group shadow-[0_0_60px_rgba(0,243,255,0.4)]">
+                                    <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-neon-cyan via-neon-pink to-neon-green" />
+                                    <h2 className="text-5xl font-black italic uppercase tracking-tighter leading-none mb-4" style={{ color: band.color }}>{band.label}</h2>
+                                    <p className="text-xl font-medium text-white/80 leading-relaxed italic drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]">
                                         &ldquo;{band.description}&rdquo;
                                     </p>
                                 </div>
@@ -311,27 +313,27 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                                 <div className="grid grid-cols-1 gap-4">
                                     <div
                                         onClick={() => setShowIntegrityDetails(!showIntegrityDetails)}
-                                        className={`p-8 rounded-[2.5rem] border transition-all cursor-pointer group ${showIntegrityDetails ? 'bg-blue-600/10 border-blue-500/50' : 'border-white/5 bg-slate-900/40 hover:bg-slate-900/60'}`}
+                                        className={`p-10 rounded-[3rem] border-2 transition-all cursor-pointer group backdrop-blur-md shadow-lg ${showIntegrityDetails ? 'bg-neon-cyan/20 border-neon-cyan shadow-[0_0_40px_rgba(0,243,255,0.2)]' : 'border-white/10 bg-black/40 hover:border-neon-cyan/50 hover:bg-black/60 shadow-[0_0_30px_rgba(0,243,255,0.05)]'}`}
                                     >
                                         <div className="flex justify-between items-start">
                                             <div className="space-y-3">
-                                                <h3 className={`font-black text-lg uppercase tracking-tight italic transition-colors ${showIntegrityDetails ? 'text-blue-400' : 'text-white'}`}>Integrity Vector</h3>
-                                                <p className="text-white/20 leading-relaxed font-bold uppercase text-[9px] tracking-widest">
-                                                    Analysis of <strong>{selection.role}</strong> and <strong>{selection.adoptionRate}x</strong> adoption.
+                                                <h3 className={`font-black text-xl uppercase tracking-tight italic transition-colors ${showIntegrityDetails ? 'text-neon-cyan' : 'text-white'}`}>Integrity Vector</h3>
+                                                <p className="text-white/40 leading-relaxed font-bold uppercase text-[10px] tracking-widest">
+                                                    Analysis of <strong className="text-neon-cyan">{selection.role}</strong> and <strong className="text-neon-pink">{selection.adoptionRate}x</strong> adoption.
                                                 </p>
                                             </div>
-                                            <span className={`text-xl transition-transform ${showIntegrityDetails ? 'rotate-180' : ''}`}>↓</span>
+                                            <span className={`text-2xl transition-transform ${showIntegrityDetails ? 'rotate-180 text-neon-cyan' : 'text-white/20'} font-bold`}>↓</span>
                                         </div>
                                         {showIntegrityDetails && (
-                                            <div className="mt-6 pt-6 border-t border-white/10 animate-fade-in space-y-4">
-                                                <div className="grid grid-cols-2 gap-4">
-                                                    <div className="space-y-1">
-                                                        <p className="text-[8px] font-black text-white/40 uppercase tracking-widest">Scoring Logic</p>
-                                                        <p className="text-[10px] font-bold text-white/80">Composite weighting of structural tasks + human value modifiers.</p>
+                                            <div className="mt-8 pt-8 border-t border-neon-cyan/20 animate-fade-in space-y-6">
+                                                <div className="grid grid-cols-2 gap-6">
+                                                    <div className="space-y-2">
+                                                        <p className="text-[9px] font-black text-white/40 uppercase tracking-widest">Scoring Logic</p>
+                                                        <p className="text-[11px] font-bold text-white/90">Composite weighting of structural tasks + human value modifiers.</p>
                                                     </div>
-                                                    <div className="space-y-1">
-                                                        <p className="text-[8px] font-black text-white/40 uppercase tracking-widest">Market Context</p>
-                                                        <p className="text-[10px] font-bold text-white/80">Reflecting current maturity of Transformer-based automation models.</p>
+                                                    <div className="space-y-2">
+                                                        <p className="text-[9px] font-black text-white/40 uppercase tracking-widest">Market Context</p>
+                                                        <p className="text-[11px] font-bold text-white/90">Reflecting current maturity of Transformer-based automation models.</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -339,16 +341,16 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                                     </div>
                                     <div
                                         onClick={() => setShowBreakdown(!showBreakdown)}
-                                        className={`p-8 rounded-[2.5rem] border transition-all cursor-pointer group ${showBreakdown ? 'bg-blue-600/10 border-blue-500/50' : 'border-white/5 bg-slate-900/40 hover:bg-slate-900/60'}`}
+                                        className={`p-10 rounded-[3rem] border-2 transition-all cursor-pointer group backdrop-blur-md shadow-lg ${showBreakdown ? 'bg-neon-pink/20 border-neon-pink shadow-[0_0_40px_rgba(255,0,255,0.2)]' : 'border-white/10 bg-black/40 hover:border-neon-pink/50 hover:bg-black/60 shadow-[0_0_30px_rgba(255,0,255,0.05)]'}`}
                                     >
                                         <div className="flex justify-between items-start">
                                             <div className="space-y-3">
-                                                <h3 className={`font-black text-lg uppercase tracking-tight italic transition-colors ${showBreakdown ? 'text-blue-400' : 'text-blue-500'}`}>Diagnostic Graph</h3>
-                                                <p className="text-white/20 leading-relaxed font-bold uppercase text-[9px] tracking-widest">
+                                                <h3 className={`font-black text-xl uppercase tracking-tight italic transition-colors ${showBreakdown ? 'text-neon-pink' : 'text-neon-pink/70'}`}>Diagnostic Graph</h3>
+                                                <p className="text-white/40 leading-relaxed font-bold uppercase text-[10px] tracking-widest">
                                                     Reflecting <strong>{selection.coreTasks.length}</strong> core human-advantage nodes.
                                                 </p>
                                             </div>
-                                            <span className={`text-xl transition-transform ${showBreakdown ? 'rotate-180' : ''}`}>↓</span>
+                                            <span className={`text-2xl transition-transform ${showBreakdown ? 'rotate-180 text-neon-pink' : 'text-white/20'} font-bold`}>↓</span>
                                         </div>
                                     </div>
                                 </div>
@@ -362,20 +364,20 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
 
                         {showBreakdown && (
                             <div className="mt-12 pt-12 border-t border-white/5 text-left animate-slide-up max-w-5xl mx-auto space-y-12">
-                                <div className="flex flex-col md:flex-row justify-between items-center bg-blue-500/5 p-8 rounded-[2rem] border border-blue-500/10 gap-8">
+                                <div className="flex flex-col md:flex-row justify-between items-center bg-black/60 p-10 rounded-[2.5rem] border-2 border-neon-cyan/20 gap-8 shadow-[0_0_40px_rgba(0,243,255,0.1)]">
                                     <div className="space-y-2">
-                                        <h2 className="text-3xl font-black text-white italic uppercase tracking-tighter">Variance Matrix</h2>
-                                        <p className="text-white/40 uppercase font-black text-[10px] tracking-widest">Task Impact Score (TIS) Diagnostic</p>
+                                        <h2 className="text-4xl font-black text-white italic uppercase tracking-tighter">Variance Matrix</h2>
+                                        <p className="text-white/40 uppercase font-black text-[10px] tracking-widest font-mono">Impact Score (TIS) Diagnostic</p>
                                     </div>
-                                    <div className="flex bg-black/40 p-4 rounded-2xl border border-white/5 gap-8">
+                                    <div className="flex bg-black p-5 rounded-2xl border-2 border-white/10 gap-8">
                                         <div className="space-y-1 text-center">
                                             <p className="text-[10px] font-black text-white/20 uppercase tracking-[0.2em]">0 Index</p>
-                                            <p className="text-[10px] font-black text-white uppercase">Pure Human</p>
+                                            <p className="text-xs font-black text-white uppercase drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]">PURE HUMAN</p>
                                         </div>
                                         <div className="w-px h-8 bg-white/10" />
                                         <div className="space-y-1 text-center">
                                             <p className="text-[10px] font-black text-white/20 uppercase tracking-[0.2em]">200 Index</p>
-                                            <p className="text-[10px] font-black text-blue-500">Autonomous AI</p>
+                                            <p className="text-xs font-black text-neon-cyan drop-shadow-[0_0_10px_rgba(0,243,255,0.5)]">AUTONOMOUS AI</p>
                                         </div>
                                     </div>
                                 </div>
@@ -384,23 +386,23 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                                     {taskInputs.map((task) => {
                                         const taskTIS = Math.round(calculateTIS(task) * 200 * selection.adoptionRate);
                                         return (
-                                            <div key={task.name} className="p-8 rounded-[2rem] border border-white/10 bg-white/5 group relative overflow-hidden transition-all hover:bg-white/10">
-                                                <div className="absolute top-0 left-0 w-1 h-full bg-blue-500/20 group-hover:bg-blue-500 transition-colors" />
+                                            <div key={task.name} className="p-8 rounded-3xl border-2 border-white/5 bg-black/60 group relative overflow-hidden transition-all hover:border-neon-cyan/30 hover:bg-neon-cyan/5 shadow-md">
+                                                <div className="absolute top-0 left-0 w-2 h-full bg-neon-cyan/10 group-hover:bg-neon-cyan transition-all duration-500 shadow-[0_0_15px_currentColor]" />
                                                 <div className="flex justify-between items-center relative z-10">
                                                     <div className="space-y-2">
                                                         <div className="flex items-center gap-3">
-                                                            <p className="font-black text-white text-lg uppercase tracking-tight leading-none">{task.name}</p>
-                                                            {task.isCoreValue && <span className="text-[8px] bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full font-black tracking-[0.2em] uppercase">Core Strength</span>}
+                                                            <p className="font-black text-white text-xl uppercase tracking-tighter italic leading-none">{task.name}</p>
+                                                            {task.isCoreValue && <span className="text-[9px] bg-neon-pink text-black px-4 py-1.5 rounded-full font-black tracking-widest uppercase shadow-[0_0_12px_rgba(255,0,255,0.4)]">Core Asset</span>}
                                                         </div>
-                                                        <p className="text-[10px] font-black text-white/30 uppercase tracking-[0.3em] font-mono">Intensity: {task.frequency}</p>
+                                                        <p className="text-[10px] font-black text-neon-cyan/40 uppercase tracking-[0.4em] font-mono">Intensity: {task.frequency}</p>
                                                     </div>
                                                     <div className="text-right">
                                                         <div className="flex items-baseline gap-1">
-                                                            <span className="font-black text-3xl text-white italic tracking-tighter">{taskTIS}</span>
-                                                            <span className="text-[10px] font-black text-white/20 uppercase">/ 200</span>
+                                                            <span className="font-black text-4xl text-white italic tracking-tighter drop-shadow-[0_0_8px_rgba(255,255,255,0.2)]">{taskTIS}</span>
+                                                            <span className="text-xs font-black text-white/20 uppercase">/ 200</span>
                                                         </div>
-                                                        <div className="w-24 h-1.5 bg-white/5 rounded-full overflow-hidden mt-2">
-                                                            <div className="h-full bg-blue-600 rounded-full shadow-[0_0_10px_rgba(37,99,235,0.5)]" style={{ width: `${(taskTIS / 200) * 100}%` }} />
+                                                        <div className="w-28 h-2 bg-white/5 rounded-full overflow-hidden mt-3 p-[1px] border border-white/10">
+                                                            <div className="h-full bg-neon-cyan rounded-full shadow-[0_0_15px_rgba(0,243,255,0.8)] transition-all duration-1000" style={{ width: `${(taskTIS / 200) * 100}%` }} />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -419,7 +421,7 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                         <div className="space-y-6 pt-10">
                             <button
                                 onClick={resetCalculator}
-                                className="w-full py-10 bg-white text-black rounded-[3rem] font-black text-4xl hover:bg-blue-600 hover:text-white transition-all active:scale-95 shadow-[0_40px_100px_rgba(0,0,0,0.5)] uppercase italic tracking-tighter"
+                                className="w-full py-10 bg-neon-cyan text-black rounded-[3rem] font-black text-4xl hover:bg-white hover:shadow-[0_0_50px_rgba(0,243,255,0.8)] transition-all active:scale-95 uppercase italic tracking-tighter"
                             >
                                 Analyze New Role
                             </button>
@@ -456,8 +458,8 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                 <div className="mb-24 space-y-8">
                     <div className="flex justify-between items-end">
                         <div className="space-y-2">
-                            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-blue-500">Core Architecture v2.0</span>
-                            <div className="text-5xl font-black text-white/5 italic uppercase tracking-tighter leading-none">
+                            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-neon-cyan drop-shadow-[0_0_8px_rgba(0,243,255,0.4)]">Core Architecture v2.0 // NEON</span>
+                            <div className="text-5xl font-black text-white/10 italic uppercase tracking-tighter leading-none">
                                 {step === 'results' ? 'Success' : `Phase 0${currentStepIndex + 1}`}
                             </div>
                         </div>
@@ -484,9 +486,9 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                             </button>
                         </div>
                     </div>
-                    <div className="h-1 bg-white/5 rounded-full overflow-hidden">
+                    <div className="h-1.5 bg-white/5 rounded-full overflow-hidden border border-white/10 p-[1px]">
                         <div
-                            className="h-full bg-blue-600 rounded-full step-indicator glow-blue transition-all duration-1000 ease-in-out"
+                            className="h-full bg-gradient-to-r from-neon-cyan to-neon-pink rounded-full transition-all duration-1000 ease-in-out shadow-[0_0_15px_rgba(0,243,255,0.4)]"
                             style={{ width: `${progress}%` }}
                         />
                     </div>

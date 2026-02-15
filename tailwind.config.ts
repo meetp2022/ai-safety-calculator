@@ -11,6 +11,10 @@ const config: Config = {
             colors: {
                 background: "var(--background)",
                 foreground: "var(--foreground)",
+                "neon-cyan": "#00f3ff",
+                "neon-pink": "#f0f",
+                "neon-green": "#39ff14",
+                "neon-yellow": "#fff01f",
             },
             fontFamily: {
                 sans: ["var(--font-inter)", "ui-sans-serif", "system-ui"],
