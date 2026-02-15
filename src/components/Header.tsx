@@ -6,7 +6,7 @@ export default function Header() {
             <div className="bg-brand-pill/90 backdrop-blur-xl border border-white/10 rounded-full px-3 py-2 sm:px-8 sm:py-3 flex items-center justify-between shadow-2xl overflow-hidden">
                 {/* Logo */}
                 <Link href="/" className="text-xl sm:text-2xl font-black tracking-tighter text-white hover:opacity-80 transition-opacity flex items-center gap-2">
-                    ai <span className="text-brand-orange">calculator</span>
+                    Career <span className="text-brand-orange">Index</span>
                 </Link>
 
                 {/* Nav Links - Desktop */}

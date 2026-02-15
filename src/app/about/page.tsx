@@ -22,7 +22,7 @@ export default function AboutPage() {
                         </h2>
                         <div className="h-1 w-20 bg-brand-orange" />
                         <p className="text-2xl text-white/50 leading-relaxed font-medium">
-                            The <span className="text-white font-bold">AI Job Safety Calculator</span> was built to pierce through the noise of AI hype and provide a clinical, data-driven analysis of how modern automation actually interacts with your daily tasks.
+                            The <span className="text-white font-bold">AI Job Safety Calculator</span> by <span className="text-brand-orange font-bold">Career Index</span> was built to pierce through the noise of AI hype and provide a clinical, data-driven analysis of how modern automation actually interacts with your daily tasks.
                         </p>
                     </div>
 

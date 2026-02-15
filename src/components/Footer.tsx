@@ -8,7 +8,7 @@ export default function Footer() {
                 <div className="grid grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-24">
                     {/* Calculator Section */}
                     <div className="space-y-6">
-                        <h4 className="text-[11px] font-black text-brand-gray uppercase tracking-[0.2em]">Calculator</h4>
+                        <h4 className="text-[11px] font-black text-brand-gray uppercase tracking-[0.2em]">AI Safety Calculator</h4>
                         <ul className="space-y-4 text-[14px] font-semibold">
                             <li><Link href="/about" className="group flex items-center gap-2 hover:text-brand-orange transition-colors"><span className="text-brand-orange opacity-40 group-hover:opacity-100 transition-opacity">›</span> How it Works</Link></li>
                             <li><Link href="/about" className="group flex items-center gap-2 hover:text-brand-orange transition-colors"><span className="text-brand-orange opacity-40 group-hover:opacity-100 transition-opacity">›</span> What&apos;s Included</Link></li>
@@ -41,7 +41,7 @@ export default function Footer() {
                     <div className="space-y-6 lg:col-span-2">
                         <h4 className="text-[11px] font-black text-brand-gray uppercase tracking-[0.2em]">Library</h4>
                         <ul className="space-y-4 text-[14px] font-semibold">
-                            <li><Link href="/about" className="group flex items-center gap-2 hover:text-brand-orange transition-colors"><span className="text-brand-orange opacity-40 group-hover:opacity-100 transition-opacity">›</span> The Complete Guide to AI Job Safety</Link></li>
+                            <li><Link href="/about" className="group flex items-center gap-2 hover:text-brand-orange transition-colors"><span className="text-brand-orange opacity-40 group-hover:opacity-100 transition-opacity">›</span> The Complete Guide to Career Safety</Link></li>
                             <li><Link href="/about" className="group flex items-center gap-2 hover:text-brand-orange transition-colors"><span className="text-brand-orange opacity-40 group-hover:opacity-100 transition-opacity">›</span> Future of Creative Roles 2026</Link></li>
                             <li><Link href="/about" className="group flex items-center gap-2 hover:text-brand-orange transition-colors"><span className="text-brand-orange opacity-40 group-hover:opacity-100 transition-opacity">›</span> Strategic Upskilling Pathways</Link></li>
                         </ul>
@@ -65,7 +65,7 @@ export default function Footer() {
 
                 {/* Bottom Legal Bar */}
                 <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-gray-100 text-[10px] sm:text-[11px] font-bold text-brand-gray uppercase tracking-[0.3em] gap-6">
-                    <p className="text-center md:text-left">© 2026 AI JOB SAFETY CALCULATOR, INC. ALL RIGHTS RESERVED</p>
+                    <p className="text-center md:text-left">© 2026 CAREER INDEX. ALL RIGHTS RESERVED</p>
                     <div className="flex gap-10">
                         <Link href="/terms" className="hover:text-brand-orange transition-colors">Terms</Link>
                         <Link href="/privacy" className="hover:text-brand-orange transition-colors">Privacy Policy</Link>

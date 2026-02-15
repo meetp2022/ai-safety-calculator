@@ -27,7 +27,7 @@ export default function TermsPage() {
                         <div className="space-y-4">
                             <h3 className="text-2xl font-bold text-white tracking-tight">1. Algorithmic Nature</h3>
                             <p className="text-lg">
-                                The AI Job Safety Calculator provides estimations based on current architecture benchmarks. These results are <span className="text-brand-orange font-bold">strictly theoretical</span> and do not constitute professional career advice or financial guarantees.
+                                The Career Index AI Job Safety Calculator provides estimations based on current architecture benchmarks. These results are <span className="text-brand-orange font-bold">strictly theoretical</span> and do not constitute professional career advice or financial guarantees.
                             </p>
                         </div>
 
