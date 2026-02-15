@@ -11,10 +11,12 @@ const config: Config = {
             colors: {
                 background: "var(--background)",
                 foreground: "var(--foreground)",
-                "neon-cyan": "#00f3ff",
-                "neon-pink": "#f0f",
-                "neon-green": "#39ff14",
-                "neon-yellow": "#fff01f",
+                "brand-orange": "#ff5722",
+                "brand-dark": "#120c0a",
+                "brand-pill": "#2d2624",
+                "brand-gray": "#8a8482",
+                "brand-card": "#ffffff",
+                "off-white": "#f5f5f5",
             },
             fontFamily: {
                 sans: ["var(--font-inter)", "ui-sans-serif", "system-ui"],

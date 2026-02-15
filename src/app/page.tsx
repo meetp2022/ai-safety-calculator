@@ -10,26 +10,30 @@ export default function Home() {
   const [currentStep, setCurrentStep] = useState('category');
 
   return (
-    <main className="min-h-screen bg-black text-white font-sans selection:bg-neon-cyan/30 relative overflow-hidden flex flex-col">
-      {/* Intense Neon Aurora Background */}
+    <main className="min-h-screen bg-brand-dark text-white font-sans selection:bg-brand-orange/30 relative overflow-hidden flex flex-col">
+      {/* Warm Organic Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] rounded-full bg-neon-cyan/20 blur-[150px] animate-aurora mix-blend-screen" />
-        <div className="absolute top-[10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-neon-pink/20 blur-[150px] animate-aurora [animation-delay:-7s] mix-blend-screen" />
-        <div className="absolute bottom-[-20%] left-[10%] w-[70%] h-[70%] rounded-full bg-neon-green/20 blur-[150px] animate-aurora [animation-delay:-14s] mix-blend-screen" />
+        <div className="absolute top-[10%] left-[-10%] w-[80%] h-[80%] rounded-full bg-brand-orange/10 blur-[200px] animate-pulse-slow mix-blend-screen opacity-60" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-brand-orange/5 blur-[180px] animate-pulse-slow [animation-delay:-5s] mix-blend-screen opacity-40" />
       </div>
 
       <Header />
 
-      <div className="py-24 relative z-10 flex-grow">
+      <div className="pt-48 pb-24 relative z-10 flex-grow">
         {currentStep === 'category' && (
-          <div className="max-w-7xl mx-auto px-6 mb-24 text-center lg:text-left">
-            <h2 className="text-7xl sm:text-9xl font-black mb-8 leading-[0.85] tracking-tighter uppercase italic text-white animate-slide-up opacity-0">
-              Will AI <br /><span className="text-neon-green drop-shadow-[0_0_50px_rgba(57,255,20,1)]">Displace</span> Your Value?
+          <div className="max-w-5xl mx-auto px-6 mb-32 text-center">
+            <h2 className="text-6xl sm:text-8xl font-bold mb-8 leading-[1.1] tracking-tight text-white animate-slide-up opacity-0">
+              Unlock your new <br /><span className="text-white/30">career intelligence</span>
             </h2>
-            <p className="text-2xl text-white/60 font-medium max-w-2xl leading-relaxed animate-slide-up opacity-0 [animation-delay:0.3s]">
-              Extreme precision analysis of AI saturation in global workflows.
-              Benchmarked against SOTA multi-modal intelligence models.
+            <p className="text-xl sm:text-2xl text-white/50 font-medium max-w-2xl mx-auto leading-relaxed animate-slide-up opacity-0 [animation-delay:0.3s]">
+              100+ task-level metrics. Every role analyzed. Detect early risk factors of 1,000+ AI models for only your attention.
             </p>
+            <div className="mt-12 animate-fade-in opacity-0 [animation-delay:0.6s]">
+              <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-white/5 border border-white/10 rounded-full text-[11px] font-black uppercase tracking-[0.2em] text-white/50">
+                <span className="w-2 h-2 rounded-full bg-brand-orange shadow-[0_0_10px_rgba(255,87,34,0.8)]" />
+                System Verified 2026
+              </div>
+            </div>
           </div>
         )}
 
