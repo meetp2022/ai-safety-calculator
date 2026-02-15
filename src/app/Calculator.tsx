@@ -8,6 +8,19 @@ import { calculateAdvancedScore, calculateTIS, TaskInput } from '../../engine/sc
 import { SCORING_CONSTANTS } from '../../engine/modifiers';
 import { getRiskBand, RISK_BANDS } from '../../engine/riskBands';
 
+interface RoleCategory {
+    id: string;
+    name: string;
+    roles: string[];
+}
+
+interface TaskScore {
+    as: number;
+    acm: number;
+    af: number;
+    haf: number;
+}
+
 type Step = 'category' | 'role' | 'experience' | 'frequency' | 'value-add' | 'context' | 'results';
 
 const ScoreLegend = () => (
@@ -69,7 +82,7 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
     };
 
     const currentRoleTasks = useMemo(() => {
-        return (tasksData as any)[selection.role] || [];
+        return (tasksData as Record<string, string[]>)[selection.role] || [];
     }, [selection.role]);
 
     const handleCalculate = () => setStep('results');
@@ -84,7 +97,7 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                             <p className="text-white/40 font-medium text-lg leading-relaxed">Initialize analysis by defining your industrial environment.</p>
                         </div>
                         <div className="grid grid-cols-1 gap-4">
-                            {rolesData.map(cat => (
+                            {(rolesData as RoleCategory[]).map(cat => (
                                 <button
                                     key={cat.id}
                                     onClick={() => {
@@ -108,16 +121,15 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                     </div>
                 );
             case 'role':
-                const category = rolesData.find(c => c.name === selection.category);
                 return (
                     <div className="space-y-10 animate-slide-up">
                         <h2 className="text-4xl font-black tracking-tight text-white uppercase italic text-center">Define Role</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                            {category?.roles.map(role => (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {(rolesData as RoleCategory[]).find(c => c.name === selection.category)?.roles.map(role => (
                                 <button
                                     key={role}
                                     onClick={() => {
-                                        setSelection({ ...selection, role: role });
+                                        setSelection({ ...selection, role });
                                         setStep('experience');
                                     }}
                                     className="p-10 text-center border border-white/5 rounded-3xl hover:border-blue-500 hover:bg-blue-600/5 transition-all duration-300 group bg-slate-900/40"
@@ -138,7 +150,7 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                                 <button
                                     key={level}
                                     onClick={() => {
-                                        setSelection({ ...selection, experience: level as any });
+                                        setSelection({ ...selection, experience: level as keyof typeof SCORING_CONSTANTS.EXPERIENCE_MODIFIERS });
                                         setStep('frequency');
                                     }}
                                     className="p-12 border border-white/5 rounded-[2.5rem] hover:border-blue-500 hover:bg-blue-600/5 transition-all duration-700 group bg-slate-900/40 flex flex-col items-center gap-4"
@@ -167,7 +179,7 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                                                 key={freq}
                                                 onClick={() => setSelection({
                                                     ...selection,
-                                                    frequencies: { ...selection.frequencies, [task]: freq as any }
+                                                    frequencies: { ...selection.frequencies, [task]: freq as keyof typeof SCORING_CONSTANTS.FREQUENCY_WEIGHTS }
                                                 })}
                                                 className={`flex-1 py-4 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all duration-500 ${selection.frequencies[task] === freq
                                                     ? 'bg-blue-600 text-white shadow-[0_0_25px_rgba(59,130,246,0.3)] scale-[1.02]'
@@ -197,7 +209,7 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                     <div className="space-y-10 animate-slide-up">
                         <div className="space-y-2 text-center">
                             <h2 className="text-4xl font-black tracking-tight text-white uppercase italic">Core Value Identification</h2>
-                            <p className="text-white/40 font-medium max-w-2xl mx-auto">Which tasks rely on your unique human judgment, empathy, or complex creativity? Select these to weight them as "Protected Assets" for a more accurate analysis.</p>
+                            <p className="text-white/40 font-medium max-w-2xl mx-auto">Which tasks rely on your unique human judgment, empathy, or complex creativity? Select these to weight them as &quot;Protected Assets&quot; for a more accurate analysis.</p>
                         </div>
                         <div className="grid grid-cols-1 gap-3">
                             {currentRoleTasks.map((task: string) => (
@@ -263,7 +275,7 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                 );
             case 'results':
                 const taskInputs: TaskInput[] = currentRoleTasks.map((taskName: string) => {
-                    const scores = (taskScoresData as any)[taskName] || { as: 0.5, acm: 0.5, af: 0.5, haf: 0.5 };
+                    const scores = (taskScoresData as Record<string, TaskScore>)[taskName] || { as: 0.5, acm: 0.5, af: 0.5, haf: 0.5 };
                     return {
                         name: taskName,
                         ...scores,
@@ -292,7 +304,7 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                                     <div className="absolute top-0 left-0 w-full h-1.5" style={{ backgroundColor: band.color }} />
                                     <h2 className="text-4xl font-black italic uppercase tracking-tighter leading-none" style={{ color: band.color }}>{band.label}</h2>
                                     <p className="text-lg font-medium text-white/60 leading-relaxed italic">
-                                        "{band.description}"
+                                        &ldquo;{band.description}&rdquo;
                                     </p>
                                 </div>
 
@@ -454,7 +466,7 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                                 <button
                                     onClick={() => {
                                         const prev = steps[currentStepIndex - 1];
-                                        setStep(prev as any);
+                                        setStep(prev as Step);
                                     }}
                                     className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 hover:text-white transition-colors group flex items-center gap-2"
                                 >
