@@ -7,7 +7,7 @@ export default function Home() {
   const [currentStep, setCurrentStep] = useState('category');
 
   return (
-    <main className="min-h-screen bg-[#0a0a0b] text-white font-sans selection:bg-blue-500/30 relative overflow-hidden">
+    <main className="min-h-screen bg-[#66696e] text-white font-sans selection:bg-blue-500/30 relative overflow-hidden">
       {/* Aesthetic Background Depth */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.03)_0%,transparent_50%)] pointer-events-none" />
 
