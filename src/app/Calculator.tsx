@@ -104,7 +104,7 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                                         setSelection({ ...selection, category: cat.name });
                                         setStep('role');
                                     }}
-                                    className="p-10 text-left border border-white/5 rounded-3xl hover:border-blue-500 hover:bg-blue-600/5 transition-all duration-700 group relative overflow-hidden bg-slate-900/40"
+                                    className="p-10 text-left border border-white/10 rounded-3xl hover:border-blue-500/50 hover:bg-blue-600/10 backdrop-blur-md transition-all duration-700 group relative overflow-hidden bg-white/5"
                                 >
                                     <div className="flex justify-between items-center relative z-10">
                                         <div>
@@ -132,7 +132,7 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                                         setSelection({ ...selection, role });
                                         setStep('experience');
                                     }}
-                                    className="p-10 text-center border border-white/5 rounded-3xl hover:border-blue-500 hover:bg-blue-600/5 transition-all duration-300 group bg-slate-900/40"
+                                    className="p-10 text-center border border-white/10 rounded-3xl hover:border-blue-500/50 hover:bg-blue-600/10 backdrop-blur-md transition-all duration-300 group bg-white/5"
                                 >
                                     <span className="text-xl font-black text-white/70 group-hover:text-white transition-colors uppercase tracking-tight leading-none">{role}</span>
                                     <div className="h-px bg-white/5 w-1/3 mx-auto mt-4 group-hover:bg-blue-500/50 transition-colors" />
@@ -153,7 +153,7 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                                         setSelection({ ...selection, experience: level as keyof typeof SCORING_CONSTANTS.EXPERIENCE_MODIFIERS });
                                         setStep('frequency');
                                     }}
-                                    className="p-12 border border-white/5 rounded-[2.5rem] hover:border-blue-500 hover:bg-blue-600/5 transition-all duration-700 group bg-slate-900/40 flex flex-col items-center gap-4"
+                                    className="p-12 border border-white/10 rounded-[2.5rem] hover:border-blue-500/50 hover:bg-blue-600/10 backdrop-blur-md transition-all duration-700 group bg-white/5 flex flex-col items-center gap-4"
                                 >
                                     <span className="text-3xl font-black text-white/50 group-hover:text-blue-500 transition-all uppercase tracking-tighter italic">{level}</span>
                                     <p className="text-[10px] font-black tracking-[0.2em] text-white/20 uppercase group-hover:text-white/40">Modifier: {SCORING_CONSTANTS.EXPERIENCE_MODIFIERS[level as keyof typeof SCORING_CONSTANTS.EXPERIENCE_MODIFIERS]}x</p>
@@ -300,7 +300,7 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
 
                             {/* Dashboard Center: Impact Card & Secondary Stats */}
                             <div className="lg:col-span-5 space-y-6">
-                                <div className="p-12 rounded-[3.5rem] bg-white/5 border border-white/5 glass space-y-6 relative overflow-hidden backdrop-blur-3xl">
+                                <div className="p-12 rounded-[3.5rem] border border-white/10 bg-white/5 backdrop-blur-2xl relative overflow-hidden group shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5)]">
                                     <div className="absolute top-0 left-0 w-full h-1.5" style={{ backgroundColor: band.color }} />
                                     <h2 className="text-4xl font-black italic uppercase tracking-tighter leading-none" style={{ color: band.color }}>{band.label}</h2>
                                     <p className="text-lg font-medium text-white/60 leading-relaxed italic">
