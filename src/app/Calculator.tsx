@@ -153,10 +153,10 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                                         setSelection({ ...selection, experience: level as keyof typeof SCORING_CONSTANTS.EXPERIENCE_MODIFIERS });
                                         setStep('frequency');
                                     }}
-                                    className={`p-12 border-2 rounded-[2.5rem] backdrop-blur-md transition-all duration-500 group bg-black/40 flex flex-col items-center gap-4 ${selection.experience === level ? 'border-neon-cyan shadow-[0_0_40px_rgba(0,243,255,0.3)] bg-neon-cyan/10' : 'border-white/10 hover:border-neon-cyan/50 hover:bg-neon-cyan/5 hover:shadow-[0_0_30px_rgba(0,243,255,0.1)]'}`}
+                                    className={`p-12 border-4 rounded-[2.5rem] backdrop-blur-md transition-all duration-500 group bg-black/40 flex flex-col items-center gap-4 ${selection.experience === level ? 'border-neon-green bg-neon-green text-black shadow-[0_0_50px_rgba(57,255,20,0.6)] scale-[1.05]' : 'border-white/10 hover:border-neon-green/50 hover:bg-neon-green/5 hover:shadow-[0_0_30px_rgba(57,255,20,0.1)]'}`}
                                 >
-                                    <span className={`text-4xl font-black transition-all uppercase tracking-tighter italic ${selection.experience === level ? 'text-neon-cyan' : 'text-white/40 group-hover:text-neon-cyan/80'}`}>{level}</span>
-                                    <p className="text-[10px] font-black tracking-[0.2em] text-white/20 uppercase group-hover:text-white/40">Modifier: {SCORING_CONSTANTS.EXPERIENCE_MODIFIERS[level as keyof typeof SCORING_CONSTANTS.EXPERIENCE_MODIFIERS]}x</p>
+                                    <span className={`text-5xl font-black transition-all uppercase tracking-tighter italic ${selection.experience === level ? 'text-black' : 'text-white/40 group-hover:text-neon-green'}`}>{level}</span>
+                                    <p className={`text-[10px] font-black tracking-[0.2em] uppercase transition-all ${selection.experience === level ? 'text-black/60' : 'text-white/20 group-hover:text-white/40'}`}>Modifier: {SCORING_CONSTANTS.EXPERIENCE_MODIFIERS[level as keyof typeof SCORING_CONSTANTS.EXPERIENCE_MODIFIERS]}x</p>
                                 </button>
                             ))}
                         </div>
@@ -193,11 +193,11 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                                 </div>
                             ))}
                         </div>
-                        <div className="sticky bottom-8 py-8 px-6 glass rounded-[3rem] shadow-2xl flex gap-4 border border-blue-500/20">
+                        <div className="sticky bottom-8 py-8 px-6 glass rounded-[3rem] shadow-2xl flex gap-4 border-2 border-neon-cyan/30">
                             <button
                                 disabled={Object.keys(selection.frequencies).length < currentRoleTasks.length}
                                 onClick={() => setStep('value-add')}
-                                className="flex-1 py-6 bg-blue-600 text-white rounded-[1.5rem] font-black text-2xl disabled:opacity-30 transition-all hover:bg-blue-500 uppercase italic tracking-tighter shadow-xl shadow-blue-500/20"
+                                className="flex-1 py-8 bg-neon-green text-black rounded-[2rem] font-black text-3xl disabled:opacity-20 transition-all hover:bg-white hover:shadow-[0_0_60px_rgba(57,255,20,0.8)] uppercase italic tracking-tighter"
                             >
                                 Proceed to Fidelity Step
                             </button>
@@ -241,7 +241,7 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                         </div>
                         <button
                             onClick={() => setStep('context')}
-                            className="w-full py-8 text-blue-500 font-black text-xl uppercase tracking-[0.2em] border border-blue-500/20 rounded-3xl mt-8 hover:bg-blue-500/5 transition-all"
+                            className="w-full py-10 text-black bg-neon-cyan font-black text-2xl uppercase tracking-[0.3em] rounded-[2.5rem] mt-8 hover:bg-white hover:shadow-[0_0_50px_rgba(0,243,255,0.8)] transition-all italic"
                         >
                             Final Context Mapping →
                         </button>
@@ -254,7 +254,7 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                             <h2 className="text-4xl font-black tracking-tight text-white uppercase italic">Environmental Adoption</h2>
                             <p className="text-white/40 font-medium">How aggressively is your specific industry or company adopting AI automation?</p>
                         </div>
-                        <div className="grid grid-cols-1 gap-4">
+                        <div className="grid grid-cols-1 gap-6">
                             {[
                                 { label: "AI-First / Aggressive", desc: "Rapid displacement of routine operations", val: 1.25 },
                                 { label: "Measured Adoption", desc: "Strategic pilot programs for specific tasks", val: 1.0 },
@@ -266,10 +266,18 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                                         setSelection({ ...selection, adoptionRate: item.val });
                                         handleCalculate();
                                     }}
-                                    className="p-10 text-left border border-white/5 rounded-[2.5rem] hover:border-blue-500 hover:bg-blue-600/5 transition-all duration-500 bg-slate-900/40"
+                                    className="p-12 text-left border-4 border-white/10 rounded-[3rem] hover:border-neon-green hover:bg-neon-green/10 transition-all duration-500 bg-black/40 group relative overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.5)]"
                                 >
-                                    <span className="text-2xl font-black text-white uppercase italic tracking-tighter">{item.label}</span>
-                                    <p className="text-white/30 font-bold uppercase text-[10px] tracking-widest mt-2">{item.desc}</p>
+                                    <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                        <div className="space-y-2">
+                                            <span className="text-4xl font-black text-white group-hover:text-neon-green transition-colors uppercase italic tracking-tighter drop-shadow-md">{item.label}</span>
+                                            <p className="text-white/30 font-bold uppercase text-xs tracking-[0.4em] group-hover:text-white/60 transition-colors font-mono">{item.desc}</p>
+                                        </div>
+                                        <div className="w-16 h-16 rounded-2xl border-2 border-white/10 flex items-center justify-center group-hover:bg-neon-green group-hover:border-neon-green transition-all duration-500">
+                                            <span className="text-white group-hover:text-black font-black text-2xl transition-colors">→</span>
+                                        </div>
+                                    </div>
+                                    <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-neon-green/5 blur-[50px] rounded-full group-hover:bg-neon-green/20 transition-all duration-700" />
                                 </button>
                             ))}
                         </div>
@@ -293,9 +301,9 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                         <div className="lg:grid lg:grid-cols-12 lg:gap-12 space-y-12 lg:space-y-0">
                             {/* Dashboard Left: Score & Identity */}
                             <div className="lg:col-span-4 space-y-8 text-center lg:text-left flex flex-col justify-center">
-                                <span className="inline-block px-6 py-2 bg-white/5 border border-white/10 rounded-full text-[8px] font-black uppercase tracking-[0.5em] text-blue-500 glow-blue mb-4">Saturation Index</span>
-                                <h1 className="text-5xl font-black tracking-tighter text-white/40 uppercase italic leading-none">AI Exposure</h1>
-                                <div className="text-[10rem] leading-none font-black tracking-tighter transition-all duration-700 hover:scale-105 select-none" style={{ color: band.color, textShadow: `0 0 80px ${band.color}44` }}>
+                                <span className="inline-block px-6 py-2 bg-neon-green/10 border-2 border-neon-green/30 rounded-full text-[9px] font-black uppercase tracking-[0.5em] text-neon-green shadow-[0_0_20px_rgba(57,255,20,0.2)] mb-4 w-fit mx-auto lg:mx-0">Saturation Index</span>
+                                <h1 className="text-5xl font-black tracking-tighter text-white/20 uppercase italic leading-none">AI Exposure</h1>
+                                <div className="text-[10rem] leading-none font-black tracking-tighter transition-all duration-700 hover:scale-105 select-none text-white drop-shadow-[0_0_60px_rgba(255,255,255,0.4)]">
                                     {score}
                                 </div>
                             </div>
@@ -429,7 +437,7 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                             <div className="flex justify-center gap-10 items-center">
                                 <button
                                     onClick={() => setStep('context')}
-                                    className="text-white/40 font-black text-xs uppercase tracking-[0.3em] hover:text-white transition-colors flex items-center gap-2"
+                                    className="text-neon-cyan/60 font-black text-xs uppercase tracking-[0.3em] hover:text-neon-cyan transition-colors flex items-center gap-2"
                                 >
                                     <span>←</span> Edit Parameters
                                 </button>
@@ -477,7 +485,7 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                             )}
                             <button
                                 onClick={resetCalculator}
-                                className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 hover:text-blue-500 transition-colors flex items-center gap-2"
+                                className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 hover:text-neon-green transition-colors flex items-center gap-2"
                             >
                                 <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
