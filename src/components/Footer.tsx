@@ -41,7 +41,7 @@ export default function Footer() {
                     <div className="space-y-6 lg:col-span-2">
                         <h4 className="text-[11px] font-black text-brand-gray uppercase tracking-[0.2em]">Library</h4>
                         <ul className="space-y-4 text-[14px] font-semibold">
-                            <li><Link href="/about" className="group flex items-center gap-2 hover:text-brand-orange transition-colors"><span className="text-brand-orange opacity-40 group-hover:opacity-100 transition-opacity">›</span> The Complete Guide to Career Safety</Link></li>
+                            <li><Link href="/guide" className="group flex items-center gap-2 hover:text-brand-orange transition-colors"><span className="text-brand-orange opacity-40 group-hover:opacity-100 transition-opacity">›</span> The Complete Guide to Career Safety</Link></li>
                             <li><Link href="/about" className="group flex items-center gap-2 hover:text-brand-orange transition-colors"><span className="text-brand-orange opacity-40 group-hover:opacity-100 transition-opacity">›</span> Future of Creative Roles 2026</Link></li>
                             <li><Link href="/about" className="group flex items-center gap-2 hover:text-brand-orange transition-colors"><span className="text-brand-orange opacity-40 group-hover:opacity-100 transition-opacity">›</span> Strategic Upskilling Pathways</Link></li>
                         </ul>

@@ -452,13 +452,7 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
         <div className="relative min-h-screen">
             <div className="max-w-7xl mx-auto py-24 px-8">
                 <div className="mb-24 space-y-10">
-                    <div className="flex justify-between items-end border-b border-white/5 pb-10">
-                        <div className="space-y-3">
-                            <span className="text-[11px] font-black uppercase tracking-[0.4em] text-brand-orange">Protocol Phase 2.0</span>
-                            <div className="text-5xl font-bold text-white tracking-tight">
-                                {step === 'results' ? 'Results Node' : `Phase 0${currentStepIndex + 1}`}
-                            </div>
-                        </div>
+                    <div className="flex justify-end border-b border-white/5 pb-10">
                         <div className="flex items-center gap-10">
                             {step !== 'category' && (
                                 <button
