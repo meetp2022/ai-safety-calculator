@@ -414,6 +414,109 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                             </div>
                         )}
 
+                        {showIntegrityDetails && (
+                            <div className="mt-12 pt-16 border-t border-white/5 text-left animate-slide-up max-w-5xl mx-auto space-y-12">
+                                {/* Header */}
+                                <div className="bg-white/[0.02] p-12 rounded-[3.5rem] border border-white/5 space-y-6">
+                                    <div className="flex flex-col md:flex-row justify-between items-start gap-6">
+                                        <div className="space-y-3">
+                                            <h2 className="text-4xl font-bold text-white tracking-tight">System Integrity Report</h2>
+                                            <p className="text-white/30 uppercase font-black text-[10px] tracking-[0.3em]">Scoring Engine v2.0 · Zero-Knowledge Protocol</p>
+                                        </div>
+                                        <div className="flex items-center gap-3 px-5 py-3 border border-green-500/30 rounded-full bg-green-500/5">
+                                            <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
+                                            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-green-400">Client-Side Only</span>
+                                        </div>
+                                    </div>
+                                    <p className="text-white/40 leading-relaxed max-w-2xl">
+                                        All calculations are performed entirely on your device. No personal data, role selections, or task configurations are transmitted to any external server.
+                                    </p>
+                                </div>
+
+                                {/* Scoring Methodology */}
+                                <div className="space-y-8">
+                                    <h3 className="text-2xl font-bold text-white tracking-tight">Scoring Methodology</h3>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                        {[
+                                            { label: 'AI Saturation (AS)', weight: SCORING_CONSTANTS.WEIGHTS.AS, desc: 'How capable current AI models are at performing this task autonomously.' },
+                                            { label: 'Architecture Maturity (ACM)', weight: SCORING_CONSTANTS.WEIGHTS.ACM, desc: 'How production-ready the AI infrastructure is for deployment in this domain.' },
+                                            { label: 'Adoption Friction (AF)', weight: SCORING_CONSTANTS.WEIGHTS.AF, desc: 'How quickly organizations are adopting AI for this specific workflow.' },
+                                            { label: 'Human Advantage (HAF)', weight: SCORING_CONSTANTS.WEIGHTS.HAF, desc: 'The degree of human-only skills required: empathy, judgment, creativity.' },
+                                        ].map(metric => (
+                                            <div key={metric.label} className="p-8 rounded-[2rem] border border-white/5 bg-white/[0.02] space-y-4">
+                                                <div className="flex justify-between items-center">
+                                                    <span className="text-sm font-bold text-white uppercase tracking-tight">{metric.label}</span>
+                                                    <span className="text-2xl font-black text-brand-orange">{Math.round(metric.weight * 100)}%</span>
+                                                </div>
+                                                <div className="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                                    <div className="h-full bg-brand-orange rounded-full" style={{ width: `${metric.weight * 100}%` }} />
+                                                </div>
+                                                <p className="text-white/30 text-xs leading-relaxed">{metric.desc}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Per-Task Metric Decomposition */}
+                                <div className="space-y-8">
+                                    <h3 className="text-2xl font-bold text-white tracking-tight">Per-Task Factor Analysis</h3>
+                                    <div className="space-y-4">
+                                        {taskInputs.map(task => (
+                                            <div key={task.name} className="p-8 rounded-[2rem] border border-white/5 bg-white/[0.02] space-y-5">
+                                                <div className="flex items-center justify-between">
+                                                    <p className="font-bold text-white text-lg tracking-tight">{task.name}</p>
+                                                    {task.isCoreValue && <span className="text-[9px] bg-brand-orange text-white px-3 py-1 rounded-full font-black tracking-widest uppercase">Protected</span>}
+                                                </div>
+                                                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                                                    {[
+                                                        { label: 'AS', value: task.as },
+                                                        { label: 'ACM', value: task.acm },
+                                                        { label: 'AF', value: task.af },
+                                                        { label: 'HAF', value: task.haf },
+                                                    ].map(f => (
+                                                        <div key={f.label} className="space-y-2">
+                                                            <div className="flex justify-between items-center">
+                                                                <span className="text-[10px] font-black text-white/30 uppercase tracking-widest">{f.label}</span>
+                                                                <span className="text-sm font-bold text-white">{(f.value * 100).toFixed(0)}%</span>
+                                                            </div>
+                                                            <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                                                                <div className={`h-full rounded-full transition-all duration-700 ${f.label === 'HAF' ? 'bg-green-500' : 'bg-brand-orange'}`} style={{ width: `${f.value * 100}%` }} />
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Applied Modifiers */}
+                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                                    <div className="p-8 rounded-[2rem] border border-white/5 bg-white/[0.02] text-center space-y-3">
+                                        <p className="text-[10px] font-black text-white/20 uppercase tracking-[0.2em]">Experience Level</p>
+                                        <p className="text-3xl font-black text-white">{selection.experience}</p>
+                                        <p className="text-sm font-bold text-brand-orange">{SCORING_CONSTANTS.EXPERIENCE_MODIFIERS[selection.experience]}x modifier</p>
+                                    </div>
+                                    <div className="p-8 rounded-[2rem] border border-white/5 bg-white/[0.02] text-center space-y-3">
+                                        <p className="text-[10px] font-black text-white/20 uppercase tracking-[0.2em]">Adoption Rate</p>
+                                        <p className="text-3xl font-black text-white">{selection.adoptionRate}x</p>
+                                        <p className="text-sm font-bold text-white/40">{selection.adoptionRate >= 1.2 ? 'Aggressive' : selection.adoptionRate >= 1.0 ? 'Measured' : 'Conservative'}</p>
+                                    </div>
+                                    <div className="p-8 rounded-[2rem] border border-white/5 bg-white/[0.02] text-center space-y-3">
+                                        <p className="text-[10px] font-black text-white/20 uppercase tracking-[0.2em]">Tasks Analyzed</p>
+                                        <p className="text-3xl font-black text-white">{currentRoleTasks.length}</p>
+                                        <p className="text-sm font-bold text-white/40">{selection.coreTasks.length} protected assets</p>
+                                    </div>
+                                </div>
+
+                                <div className="text-center pt-12">
+                                    <button onClick={() => setShowIntegrityDetails(false)} className="text-[11px] font-black uppercase text-white/20 hover:text-white transition-colors tracking-[0.4em] group flex items-center gap-3 mx-auto">
+                                        <span className="inline-block transition-transform group-hover:-translate-y-1">↑</span> Close Integrity Report
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+
                         <div className="space-y-6 pt-16">
                             <button
                                 onClick={resetCalculator}
