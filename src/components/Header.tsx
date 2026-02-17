@@ -6,15 +6,8 @@ export default function Header() {
             <div className="bg-brand-pill/90 backdrop-blur-xl border border-white/10 rounded-full px-3 py-2 sm:px-8 sm:py-3 flex items-center justify-between shadow-2xl overflow-hidden">
                 {/* Logo */}
                 <Link href="/" className="text-xl sm:text-2xl font-black tracking-tighter text-white hover:opacity-80 transition-opacity flex items-center gap-3">
-                    <img
-                        src="/logo.png"
-                        alt="CI Logo"
-                        className="h-7 sm:h-9 w-auto rounded-xl shadow-lg border border-white/10"
-                    />
-                    <div className="flex items-center gap-1.5">
-                        <span>Career</span>
-                        <span className="text-brand-orange">Index</span>
-                    </div>
+                    <span className="bg-brand-orange text-white text-sm sm:text-base font-black px-2.5 py-1.5 rounded-xl leading-none tracking-normal lowercase">ci</span>
+                    Career <span className="text-brand-orange">Index</span>
                 </Link>
 
                 {/* Nav Links - Desktop */}
