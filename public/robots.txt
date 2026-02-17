@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://careerindex.tech/sitemap.xml
+Sitemap: https://www.careerindex.tech/sitemap.xml
