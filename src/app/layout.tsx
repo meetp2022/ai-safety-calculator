@@ -7,6 +7,10 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 export const metadata: Metadata = {
   title: 'Career Index | AI Job Safety Calculator',
   description: 'Check how AI will impact your job. Get a detailed career exposure report in under a minute with our free AI Job Safety Calculator.',
+  icons: {
+    icon: '/favicon.png',
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({
