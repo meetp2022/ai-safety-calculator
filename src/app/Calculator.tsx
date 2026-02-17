@@ -87,12 +87,12 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
         switch (step) {
             case 'category':
                 return (
-                    <div className="space-y-12 animate-slide-up">
+                    <div className="space-y-8 animate-slide-up">
                         <div className="space-y-4 text-center">
                             <h2 className="text-5xl font-bold tracking-tight text-white">Select Sector</h2>
                             <p className="text-white/40 font-medium text-lg leading-relaxed max-w-xl mx-auto">Initialize analysis by defining your industrial environment.</p>
                         </div>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                             {(rolesData as RoleCategory[]).map(cat => (
                                 <button
                                     key={cat.id}
@@ -100,7 +100,7 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
                                         setSelection({ ...selection, category: cat.name });
                                         setStep('role');
                                     }}
-                                    className="p-10 text-left border border-white/5 rounded-[2.5rem] hover:border-brand-orange hover:bg-brand-orange/5 bg-white/[0.03] backdrop-blur-md transition-all duration-500 group relative overflow-hidden"
+                                    className="p-6 text-left border border-white/5 rounded-[2rem] hover:border-brand-orange hover:bg-brand-orange/5 bg-white/[0.03] backdrop-blur-md transition-all duration-500 group relative overflow-hidden"
                                 >
                                     <div className="flex justify-between items-center relative z-10">
                                         <div>
@@ -553,9 +553,9 @@ export default function Calculator({ onStepChange }: { onStepChange?: (step: str
 
     return (
         <div className="relative min-h-screen">
-            <div className="max-w-7xl mx-auto py-24 px-8">
-                <div className="mb-24 space-y-10">
-                    <div className="flex justify-end border-b border-white/5 pb-10">
+            <div className="max-w-7xl mx-auto py-8 px-8">
+                <div className="mb-8 space-y-4">
+                    <div className="flex justify-end border-b border-white/5 pb-4">
                         <div className="flex items-center gap-10">
                             {step !== 'category' && (
                                 <button
