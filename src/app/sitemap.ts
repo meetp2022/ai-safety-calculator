@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://careerindex.tech';
+    const baseUrl = 'https://www.careerindex.tech';
 
     return [
         {
