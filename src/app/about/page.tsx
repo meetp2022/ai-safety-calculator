@@ -1,10 +1,44 @@
 "use client";
 
+import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 
 export default function AboutPage() {
+    const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+    const faqs = [
+        {
+            q: "What is the AI Job Safety Calculator?",
+            a: "It is a specialized tool designed to provide a realistic, data-driven analysis of how modern AI and automation technologies affect your specific role by breaking it down task-by-task."
+        },
+        {
+            q: "How is the Task Impact Score (TIS) calculated?",
+            a: "The TIS uses our proprietary algorithm based on AI Saturated Capabilities (AS), Architecture Context Maturity (ACM), and Human Advantage Factors (HAF). We calculate the theoretical AI capability vs. the human judgment required for each task."
+        },
+        {
+            q: "Is my data safe and private?",
+            a: "Yes. All calculations are performed entirely on your device (client-side). No task descriptions, seniority data, or personal details are ever sent to or stored on our servers."
+        },
+        {
+            q: "Why do you ask for my experience level?",
+            a: "Experience heavily modifies our risk analysis. Entry-level tasks typically follow standardized patterns that are easier for AI to replicate, whereas senior roles rely intensely on nuanced judgment, strategic context, and complex human interactions—which act as a strong moat against automation."
+        },
+        {
+            q: "If my score is high, does that mean I will lose my job?",
+            a: "Not necessarily. A high score signifies that a large portion of your recurring tasks can be augmented or automated. This is a strong signal to pivot your focus toward 'Human Advantage' skills—such as creativity, empathy, and high-level judgment—rather than manual execution."
+        },
+        {
+            q: "How often is the underlying data updated?",
+            a: "We continuously monitor AI capability benchmarks across Technology, Business, and Creative sectors, updating our dataset to reflect the latest state-of-the-art models to ensure your score reflects current realities."
+        },
+        {
+            q: "Is this tool really 100% free?",
+            a: "Yes, the calculator is completely free to use with no hidden paywalls or signup required. Our mission is to democratize access to career intelligence in the emerging AI era."
+        }
+    ];
+
     return (
         <main className="min-h-screen bg-brand-dark text-white font-sans selection:bg-brand-orange/30 relative overflow-hidden flex flex-col">
             {/* Background Effects */}
@@ -48,8 +82,34 @@ export default function AboutPage() {
                         </p>
                     </div>
 
-                    <div className="pt-12">
-                        <Link href="/" className="inline-block py-8 px-16 bg-brand-orange text-white rounded-full font-bold text-3xl hover:scale-105 active:scale-95 transition-all shadow-[0_15px_60px_rgba(255,87,34,0.4)] uppercase tracking-tight">
+                    <div className="space-y-12 pt-10 border-t border-white/10">
+                        <div className="space-y-4">
+                            <h3 className="text-4xl font-black tracking-tight text-white uppercase leading-none">
+                                Frequently Asked Questions
+                            </h3>
+                            <p className="text-lg text-white/40 font-medium">Everything you need to know about the product and billing.</p>
+                        </div>
+
+                        <div className="space-y-4">
+                            {faqs.map((faq, index) => (
+                                <div key={index} className="border border-white/5 rounded-3xl bg-white/[0.02] overflow-hidden transition-colors hover:border-brand-orange/30">
+                                    <button
+                                        onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                                        className="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-white/[0.02] transition-colors"
+                                    >
+                                        <span className="text-xl font-bold text-white pr-8">{faq.q}</span>
+                                        <span className={`text-brand-orange text-2xl font-light transition-transform duration-300 ${openFaq === index ? 'rotate-45' : ''}`}>+</span>
+                                    </button>
+                                    <div className={`px-8 overflow-hidden transition-all duration-300 ease-in-out ${openFaq === index ? 'max-h-96 pb-6 opacity-100' : 'max-h-0 opacity-0'}`}>
+                                        <p className="text-white/50 text-lg leading-relaxed">{faq.a}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="pt-12 text-center">
+                        <Link href="/" className="inline-block py-6 px-12 bg-brand-orange text-white rounded-full font-bold text-2xl hover:scale-105 active:scale-95 transition-all shadow-[0_15px_60px_rgba(255,87,34,0.4)] uppercase tracking-tight">
                             Start Your Analysis
                         </Link>
                     </div>
