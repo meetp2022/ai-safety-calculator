@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 
 export default function Header() {
     return (
@@ -6,7 +8,7 @@ export default function Header() {
             <div className="bg-brand-pill/90 backdrop-blur-xl border border-white/10 rounded-full px-3 py-2 sm:px-8 sm:py-3 flex items-center justify-between shadow-2xl overflow-hidden">
                 {/* Logo */}
                 <Link href="/" className="text-xl sm:text-2xl font-black tracking-tighter text-white hover:opacity-80 transition-opacity flex items-center gap-3">
-                    <img src="/CareerIndex.svg" alt="Career Index" className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg" />
+                    <Image src="/CareerIndex.svg" alt="Career Index" width={40} height={40} className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg" />
                     Career <span className="text-brand-orange">Index</span>
                 </Link>
 
@@ -16,7 +18,13 @@ export default function Header() {
                     <Link href="/about" className="hover:text-white transition-colors">Reviews</Link>
                     <Link href="/about" className="hover:text-white transition-colors">FAQs</Link>
                     <div className="w-px h-4 bg-white/10 mx-2" />
-                    <Link href="/login" className="hover:text-white transition-colors">Login</Link>
+                    <SignedOut>
+                        <Link href="/login" className="hover:text-white transition-colors">Login</Link>
+                    </SignedOut>
+                    <SignedIn>
+                        <Link href="/dashboard" className="hover:text-white transition-colors">Dashboard</Link>
+                        <UserButton />
+                    </SignedIn>
                 </nav>
 
                 {/* CTA */}
