@@ -5,16 +5,16 @@ import Calculator from './Calculator';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import InteractiveBackground from '@/components/InteractiveBackground';
 
 export default function Home() {
   const [currentStep, setCurrentStep] = useState('category');
 
   return (
     <main className="min-h-screen bg-brand-dark text-white font-sans selection:bg-brand-orange/30 relative overflow-hidden flex flex-col">
-      {/* Warm Organic Background */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[10%] left-[-10%] w-[80%] h-[80%] rounded-full bg-brand-orange/10 blur-[200px] animate-pulse-slow mix-blend-screen opacity-60" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-brand-orange/5 blur-[180px] animate-pulse-slow [animation-delay:-5s] mix-blend-screen opacity-40" />
+      {/* Interactive Particle Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <InteractiveBackground />
       </div>
 
       <Header />
