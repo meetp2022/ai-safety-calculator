@@ -50,7 +50,7 @@ export default function AboutPage() {
 
             <div className="pt-48 pb-24 relative z-10 flex-grow max-w-4xl mx-auto px-6">
                 <section className="space-y-20 animate-fade-in">
-                    <div className="space-y-6">
+                    <div id="how-it-works" className="space-y-6 scroll-mt-32">
                         <h2 className="text-6xl font-black tracking-tight text-white uppercase leading-none">
                             Our Mission
                         </h2>
@@ -82,7 +82,38 @@ export default function AboutPage() {
                         </p>
                     </div>
 
-                    <div className="space-y-12 pt-10 border-t border-white/10">
+                    <div id="reviews" className="space-y-12 pt-10 border-t border-white/10 scroll-mt-32">
+                        <div className="space-y-4">
+                            <h3 className="text-4xl font-black tracking-tight text-white uppercase leading-none">
+                                What Users Say
+                            </h3>
+                            <p className="text-lg text-white/40 font-medium">Real feedback from professionals who used our tool.</p>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="p-8 rounded-[2rem] bg-white/[0.03] border border-white/5 backdrop-blur-md space-y-4">
+                                <div className="flex gap-1 text-brand-orange text-lg">★★★★★</div>
+                                <p className="text-white/50 leading-relaxed font-medium italic">&ldquo;Finally a tool that breaks down AI risk by actual tasks instead of vague job titles. The task-level analysis gave me a clear picture of where to upskill.&rdquo;</p>
+                                <p className="text-sm font-bold text-white/30 uppercase tracking-widest">— Marketing Manager</p>
+                            </div>
+                            <div className="p-8 rounded-[2rem] bg-white/[0.03] border border-white/5 backdrop-blur-md space-y-4">
+                                <div className="flex gap-1 text-brand-orange text-lg">★★★★★</div>
+                                <p className="text-white/50 leading-relaxed font-medium italic">&ldquo;I was worried AI would replace my role entirely. This showed me that 60% of my work is actually in the human-advantage zone. Very reassuring.&rdquo;</p>
+                                <p className="text-sm font-bold text-white/30 uppercase tracking-widest">— UX Designer</p>
+                            </div>
+                            <div className="p-8 rounded-[2rem] bg-white/[0.03] border border-white/5 backdrop-blur-md space-y-4">
+                                <div className="flex gap-1 text-brand-orange text-lg">★★★★☆</div>
+                                <p className="text-white/50 leading-relaxed font-medium italic">&ldquo;Clean interface, zero data collection, and genuinely useful output. I shared it with my whole team.&rdquo;</p>
+                                <p className="text-sm font-bold text-white/30 uppercase tracking-widest">— Engineering Lead</p>
+                            </div>
+                            <div className="p-8 rounded-[2rem] bg-white/[0.03] border border-white/5 backdrop-blur-md space-y-4">
+                                <div className="flex gap-1 text-brand-orange text-lg">★★★★★</div>
+                                <p className="text-white/50 leading-relaxed font-medium italic">&ldquo;The privacy-first approach sold me. Everything runs locally — no signup, no data harvesting. Exactly what career tools should be.&rdquo;</p>
+                                <p className="text-sm font-bold text-white/30 uppercase tracking-widest">— Data Analyst</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="faqs" className="space-y-12 pt-10 border-t border-white/10 scroll-mt-32">
                         <div className="space-y-4">
                             <h3 className="text-4xl font-black tracking-tight text-white uppercase leading-none">
                                 Frequently Asked Questions

@@ -16,9 +16,24 @@ export default function Header() {
 
                 {/* Nav Links - Desktop */}
                 <nav className="hidden lg:flex items-center gap-8 text-[13px] font-semibold text-white/50">
-                    <Link href="/about" className="hover:text-white transition-colors">How it Works</Link>
-                    <Link href="/about" className="hover:text-white transition-colors">Reviews</Link>
-                    <Link href="/about" className="hover:text-white transition-colors">FAQs</Link>
+                    <Link href="/about#how-it-works" scroll={false} onClick={(e) => {
+                        if (window.location.pathname === '/about') {
+                            e.preventDefault();
+                            document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }} className="hover:text-white transition-colors">How it Works</Link>
+                    <Link href="/about#reviews" scroll={false} onClick={(e) => {
+                        if (window.location.pathname === '/about') {
+                            e.preventDefault();
+                            document.getElementById('reviews')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }} className="hover:text-white transition-colors">Reviews</Link>
+                    <Link href="/about#faqs" scroll={false} onClick={(e) => {
+                        if (window.location.pathname === '/about') {
+                            e.preventDefault();
+                            document.getElementById('faqs')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }} className="hover:text-white transition-colors">FAQs</Link>
                     <div className="w-px h-4 bg-white/10 mx-2" />
                     <SignedOut>
                         <Link href="/login" className="hover:text-white transition-colors">Login</Link>
