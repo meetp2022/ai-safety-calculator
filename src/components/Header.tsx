@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
@@ -29,7 +31,12 @@ export default function Header() {
 
                 {/* CTA */}
                 <div className="flex items-center gap-3">
-                    <Link href="/" className="bg-brand-orange text-white px-5 py-2.5 sm:px-7 sm:py-3 rounded-full text-[12px] sm:text-sm font-black uppercase tracking-tight hover:scale-105 active:scale-95 transition-all shadow-[0_8px_30px_rgba(255,87,34,0.4)]">
+                    <Link href="/#calculator" scroll={false} onClick={(e) => {
+                        if (window.location.pathname === '/') {
+                            e.preventDefault();
+                            document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }} className="bg-brand-orange text-white px-5 py-2.5 sm:px-7 sm:py-3 rounded-full text-[12px] sm:text-sm font-black uppercase tracking-tight hover:scale-105 active:scale-95 transition-all shadow-[0_8px_30px_rgba(255,87,34,0.4)]">
                         Try Calculator
                     </Link>
                 </div>

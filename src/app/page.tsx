@@ -38,7 +38,7 @@ export default function Home() {
           </div>
         )}
 
-        <div className="animate-fade-in opacity-0 [animation-delay:0.4s]">
+        <div id="calculator" className="animate-fade-in opacity-0 [animation-delay:0.4s]">
           <Calculator onStepChange={setCurrentStep} />
         </div>
       </div>
