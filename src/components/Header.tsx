@@ -16,6 +16,7 @@ export default function Header() {
 
                 {/* Nav Links - Desktop */}
                 <nav className="hidden lg:flex items-center gap-8 text-[13px] font-semibold text-white/50">
+                    <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
                     <Link href="/about#how-it-works" scroll={false} onClick={(e) => {
                         if (window.location.pathname === '/about') {
                             e.preventDefault();
