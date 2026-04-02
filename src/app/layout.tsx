@@ -6,11 +6,15 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.careerindex.tech'),
   title: 'Career Index | AI Job Safety Calculator',
   description: 'Check how AI will impact your job. Get a detailed career exposure report in under a minute with our free AI Job Safety Calculator.',
   icons: {
     icon: '/CareerIndex.svg',
     apple: '/CareerIndex.svg',
+  },
+  openGraph: {
+    images: [{ url: '/logo.png', width: 1200, height: 630 }],
   },
 };
 

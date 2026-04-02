@@ -8,6 +8,12 @@ export const metadata: Metadata = {
         title: 'Career Index Blog — AI Career Safety Insights',
         description:
             'Latest insights on AI career safety — industry reports, career tips, and breaking AI news.',
+        images: [{ 
+            url: '/blog/covers/gpt5-career-impact.png',
+            width: 1200,
+            height: 630,
+            alt: 'Career Index Blog Cover'
+        }],
     },
 };
 
